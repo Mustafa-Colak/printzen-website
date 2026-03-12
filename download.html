@@ -1,30 +1,15 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Printzen — Download</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    setTimeout(function() {
-      window.location.href = "https://github.com/Mustafa-Colak/mobile-print-service-android/releases/latest/download/MobilePrintService-v2.3.1.apk";
-    }, 2000);
+    var a = document.createElement('a');
+    a.href = "https://github.com/Mustafa-Colak/mobile-print-service-android/releases/latest/download/MobilePrintService-v2.3.1.apk";
+    a.download = "MobilePrintService-v2.3.1.apk";
+    document.body.appendChild(a);
+    a.click();
+    window.location.href = "/";
   </script>
 </head>
-<body class="bg-gray-50 min-h-screen flex items-center justify-center">
-  <div class="text-center px-4">
-    <div class="text-5xl mb-6">📲</div>
-    <h1 class="text-2xl font-bold text-gray-900 mb-2">İndirme başlıyor…</h1>
-    <p class="text-gray-500 mb-8">Otomatik başlamazsa aşağıdaki butona tıklayın.</p>
-    <a href="https://github.com/Mustafa-Colak/mobile-print-service-android/releases/latest/download/MobilePrintService-v2.3.1.apk"
-       class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition inline-flex items-center gap-2 shadow-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-      </svg>
-      APK İndir (v2.3.1)
-    </a>
-    <p class="text-sm text-gray-400 mt-6">Android 8.0+ • ~25 MB</p>
-    <p class="mt-8"><a href="/" class="text-blue-600 hover:underline text-sm">← printzen.app</a></p>
-  </div>
-</body>
+<body></body>
 </html>
