@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/download",
+      "destination": "https://github.com/Mustafa-Colak/mobile-print-service-android/releases/latest/download/MobilePrintService-v2.3.1.apk",
+      "permanent": false
+    }
+  ]
+}
