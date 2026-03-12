@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printzen — Mobile Print Service for Android</title>
+  <meta name="description" content="Print from any Android app to any thermal printer. Bluetooth, Wi-Fi, USB support.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .tr { display: none; }
+    html[lang="tr"] .en { display: none; }
+    html[lang="tr"] .tr { display: revert; }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Nav -->
+  <nav class="bg-white shadow-sm sticky top-0 z-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <span class="text-2xl font-bold text-blue-600">Printzen</span>
+      <div class="flex items-center gap-4">
+        <button onclick="toggleLang()" id="langBtn" class="text-sm border border-gray-300 rounded px-3 py-1 hover:bg-gray-100 transition">TR</button>
+        <a href="#pricing" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+          <span class="en">Get License</span><span class="tr">Lisans Al</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-5xl mx-auto px-4 py-20 text-center">
+    <div class="inline-block bg-blue-50 text-blue-700 text-sm font-medium px-4 py-1 rounded-full mb-6">
+      <span class="en">Android Print Service</span><span class="tr">Android Yazdırma Servisi</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+      <span class="en">Print from any Android app<br>to any thermal printer</span>
+      <span class="tr">Her Android uygulamasından<br>her termal yazıcıya yazdır</span>
+    </h1>
+    <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">
+      <span class="en">Mobile Print Service connects your Android device to receipt and label printers via Bluetooth, Wi-Fi, or USB — through the system print dialog.</span>
+      <span class="tr">Mobile Print Service, Android cihazınızı sistem yazdırma dialogu üzerinden fiş ve etiket yazıcılara Bluetooth, Wi-Fi veya USB ile bağlar.</span>
+    </p>
+    <a href="#pricing" class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition inline-block shadow-lg">
+      <span class="en">View Pricing →</span><span class="tr">Fiyatları Gör →</span>
+    </a>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="text-3xl mb-3">🖨️</div>
+        <h3 class="font-bold text-lg mb-2">
+          <span class="en">System Print Dialog</span>
+          <span class="tr">Sistem Print Dialogu</span>
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          <span class="en">Works with any Android app that supports printing — Chrome, Google Docs, your own app — no modification needed.</span>
+          <span class="tr">Chrome, Google Docs ve kendi uygulamanız dahil yazdırmayı destekleyen her Android uygulamasıyla çalışır.</span>
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="text-3xl mb-3">📶</div>
+        <h3 class="font-bold text-lg mb-2">
+          <span class="en">Multiple Connections</span>
+          <span class="tr">Çoklu Bağlantı</span>
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          <span class="en">Bluetooth, Wi-Fi, and USB OTG. Supports SII, Rongta, and any generic ESC/POS thermal printer.</span>
+          <span class="tr">Bluetooth, Wi-Fi ve USB OTG. SII, Rongta ve tüm genel ESC/POS termal yazıcıları destekler.</span>
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div class="text-3xl mb-3">⚡</div>
+        <h3 class="font-bold text-lg mb-2">
+          <span class="en">HTTP API</span>
+          <span class="tr">HTTP API</span>
+        </h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          <span class="en">Send PDF, images, or raw ESC/POS data from any app on your local network via a simple REST API.</span>
+          <span class="tr">Yerel ağınızdaki herhangi bir uygulamadan PDF, görsel veya ham ESC/POS verisi gönderin.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="max-w-5xl mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold text-center mb-4">
+      <span class="en">Simple, one-time pricing</span>
+      <span class="tr">Basit, tek seferlik ödeme</span>
+    </h2>
+    <p class="text-center text-gray-500 mb-12">
+      <span class="en">Buy once, use forever. No subscriptions.</span>
+      <span class="tr">Bir kez öde, sonsuza kadar kullan. Abonelik yok.</span>
+    </p>
+    <div class="grid md:grid-cols-3 gap-8 items-start">
+
+      <!-- Basic -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+        <h3 class="font-bold text-xl mb-1">Basic</h3>
+        <p class="text-gray-400 text-sm mb-6">
+          <span class="en">1 device</span><span class="tr">1 cihaz</span>
+        </p>
+        <div class="text-5xl font-bold mb-1">$15</div>
+        <p class="text-gray-400 text-xs mb-8">
+          <span class="en">one-time</span><span class="tr">tek seferlik</span>
+        </p>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8">
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">1 device activation</span><span class="tr">1 cihaz aktivasyonu</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">All Pro features</span><span class="tr">Tüm Pro özellikler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
+        </ul>
+        <a href="#" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
+        </a>
+      </div>
+
+      <!-- Standard (Popular) -->
+      <div class="bg-blue-600 rounded-2xl p-8 shadow-xl text-white relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-400 text-white text-xs px-4 py-1.5 rounded-full font-bold whitespace-nowrap">
+          <span class="en">MOST POPULAR</span><span class="tr">EN POPÜLER</span>
+        </div>
+        <h3 class="font-bold text-xl mb-1">Standard</h3>
+        <p class="text-blue-200 text-sm mb-6">
+          <span class="en">5 devices</span><span class="tr">5 cihaz</span>
+        </p>
+        <div class="text-5xl font-bold mb-1">$49</div>
+        <p class="text-blue-300 text-xs mb-8">
+          <span class="en">one-time</span><span class="tr">tek seferlik</span>
+        </p>
+        <ul class="text-sm text-blue-100 space-y-3 mb-8">
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">5 device activations</span><span class="tr">5 cihaz aktivasyonu</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">All Pro features</span><span class="tr">Tüm Pro özellikler</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
+        </ul>
+        <a href="#" class="buy-btn block text-center bg-white text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition">
+          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
+        </a>
+      </div>
+
+      <!-- Business -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+        <h3 class="font-bold text-xl mb-1">Business</h3>
+        <p class="text-gray-400 text-sm mb-6">
+          <span class="en">10 devices</span><span class="tr">10 cihaz</span>
+        </p>
+        <div class="text-5xl font-bold mb-1">$89</div>
+        <p class="text-gray-400 text-xs mb-8">
+          <span class="en">one-time</span><span class="tr">tek seferlik</span>
+        </p>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8">
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">10 device activations</span><span class="tr">10 cihaz aktivasyonu</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">All Pro features</span><span class="tr">Tüm Pro özellikler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Priority support</span><span class="tr">Öncelikli destek</span></li>
+        </ul>
+        <a href="#" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 mt-8">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-white font-bold text-xl">Printzen</div>
+      <div class="flex gap-6 text-sm">
+        <a href="/terms.html" class="hover:text-white transition"><span class="en">Terms of Service</span><span class="tr">Kullanım Şartları</span></a>
+        <a href="/privacy.html" class="hover:text-white transition"><span class="en">Privacy Policy</span><span class="tr">Gizlilik Politikası</span></a>
+        <a href="/refund.html" class="hover:text-white transition"><span class="en">Refund Policy</span><span class="tr">İade Politikası</span></a>
+      </div>
+      <div class="text-sm">© 2026 Printzen</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleLang() {
+      const html = document.documentElement;
+      const btn = document.getElementById('langBtn');
+      if (html.lang === 'en') {
+        html.lang = 'tr';
+        btn.textContent = 'EN';
+      } else {
+        html.lang = 'en';
+        btn.textContent = 'TR';
+      }
+    }
+  </script>
+</body>
+</html>
