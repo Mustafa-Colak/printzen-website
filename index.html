@@ -6,6 +6,7 @@
   <title>Printzen — Mobile Print Service for Android</title>
   <meta name="description" content="Print from any Android app to any thermal printer. Bluetooth, Wi-Fi, USB support.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <style>
     .tr { display: none; }
     html[lang="tr"] .en { display: none; }
@@ -112,7 +113,7 @@
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
         </ul>
-        <a href="#" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+        <a href="#" onclick="buyPlan('pri_01kkgzak9b6yvvs7t2ajdtk2ay'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
           <span class="en">Buy Now</span><span class="tr">Satın Al</span>
         </a>
       </div>
@@ -136,7 +137,7 @@
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
         </ul>
-        <a href="#" class="buy-btn block text-center bg-white text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition">
+        <a href="#" onclick="buyPlan('pri_01kkgzd07mp4hw2c39apyfxqhs'); return false;" class="buy-btn block text-center bg-white text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition">
           <span class="en">Buy Now</span><span class="tr">Satın Al</span>
         </a>
       </div>
@@ -157,7 +158,7 @@
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Priority support</span><span class="tr">Öncelikli destek</span></li>
         </ul>
-        <a href="#" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+        <a href="#" onclick="buyPlan('pri_01kkgzn5q0r7fkyctf2t6cgvwa'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
           <span class="en">Buy Now</span><span class="tr">Satın Al</span>
         </a>
       </div>
@@ -202,6 +203,16 @@
   </footer>
 
   <script>
+    // Paddle Billing v2
+    Paddle.Initialize({ token: 'live_a232701421a84ae13568067ed6e' });
+
+    function buyPlan(priceId) {
+      Paddle.Checkout.open({
+        items: [{ priceId: priceId, quantity: 1 }],
+        settings: { displayMode: 'overlay', theme: 'light' }
+      });
+    }
+
     function toggleLang() {
       const html = document.documentElement;
       const btn = document.getElementById('langBtn');
