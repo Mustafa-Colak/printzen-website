@@ -118,12 +118,12 @@
       </div>
     </div>
 
-    <!-- BT Only Plan -->
-    <div id="plans-bt" class="flex justify-center">
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 w-full max-w-xs">
-        <div class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-          <span class="en">Bluetooth Only</span><span class="tr">Sadece Bluetooth</span>
-        </div>
+    <!-- BT Only Plans -->
+    <div id="plans-bt">
+    <div class="grid md:grid-cols-4 gap-6 items-start">
+
+      <!-- BT Basic -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
         <h3 class="font-bold text-xl mb-1">BT Basic</h3>
         <p class="text-gray-400 text-sm mb-6">
           <span class="en">1 device</span><span class="tr">1 cihaz</span>
@@ -141,10 +141,86 @@
           <li class="flex items-center gap-2"><span class="text-gray-300">✗</span> <span class="text-gray-400 en">Wi-Fi / USB printing</span><span class="text-gray-400 tr">Wi-Fi / USB yazdırma</span></li>
           <li class="flex items-center gap-2"><span class="text-gray-300">✗</span> <span class="text-gray-400 en">HTTP API</span><span class="text-gray-400 tr">HTTP API</span></li>
         </ul>
-        <a href="#" onclick="buyPlan('pri_01kkgzak9b6yvvs7t2ajdtk2ay_BT'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+        <a href="#" onclick="buyPlan('pri_BT_1DEV'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
           <span class="en">Buy Now</span><span class="tr">Satın Al</span>
         </a>
       </div>
+
+      <!-- BT Standard (Popular) -->
+      <div class="bg-blue-600 rounded-2xl p-8 shadow-xl text-white relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-400 text-white text-xs px-4 py-1.5 rounded-full font-bold whitespace-nowrap">
+          <span class="en">MOST POPULAR</span><span class="tr">EN POPÜLER</span>
+        </div>
+        <h3 class="font-bold text-xl mb-1">BT Standard</h3>
+        <p class="text-blue-200 text-sm mb-6">
+          <span class="en">5 devices</span><span class="tr">5 cihaz</span>
+        </p>
+        <div class="text-5xl font-bold mb-1">$39.90</div>
+        <p class="text-blue-300 text-xs -mt-1 mb-1">$7.98 / device</p>
+        <p class="text-blue-300 text-xs mb-8">
+          <span class="en">one-time</span><span class="tr">tek seferlik</span>
+        </p>
+        <ul class="text-sm text-blue-100 space-y-3 mb-8">
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">5 device activations</span><span class="tr">5 cihaz aktivasyonu</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-100 opacity-40">✗</span> <span class="text-blue-200 opacity-50 en">Wi-Fi / USB printing</span><span class="text-blue-200 opacity-50 tr">Wi-Fi / USB yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-100 opacity-40">✗</span> <span class="text-blue-200 opacity-50 en">HTTP API</span><span class="text-blue-200 opacity-50 tr">HTTP API</span></li>
+        </ul>
+        <a href="#" onclick="buyPlan('pri_BT_5DEV'); return false;" class="buy-btn block text-center bg-white text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition">
+          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
+        </a>
+      </div>
+
+      <!-- BT Business -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+        <h3 class="font-bold text-xl mb-1">BT Business</h3>
+        <p class="text-gray-400 text-sm mb-6">
+          <span class="en">10 devices</span><span class="tr">10 cihaz</span>
+        </p>
+        <div class="text-5xl font-bold mb-1">$69.90</div>
+        <p class="text-gray-400 text-xs -mt-1 mb-1">$6.99 / device</p>
+        <p class="text-gray-400 text-xs mb-8">
+          <span class="en">one-time</span><span class="tr">tek seferlik</span>
+        </p>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8">
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">10 device activations</span><span class="tr">10 cihaz aktivasyonu</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Priority support</span><span class="tr">Öncelikli destek</span></li>
+          <li class="flex items-center gap-2"><span class="text-gray-300">✗</span> <span class="text-gray-400 en">Wi-Fi / USB printing</span><span class="text-gray-400 tr">Wi-Fi / USB yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-gray-300">✗</span> <span class="text-gray-400 en">HTTP API</span><span class="text-gray-400 tr">HTTP API</span></li>
+        </ul>
+        <a href="#" onclick="buyPlan('pri_BT_10DEV'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
+        </a>
+      </div>
+
+      <!-- BT Enterprise -->
+      <div class="bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-700 text-white">
+        <h3 class="font-bold text-xl mb-1">BT Enterprise</h3>
+        <p class="text-gray-400 text-sm mb-6">
+          <span class="en">Unlimited devices</span><span class="tr">Sınırsız cihaz</span>
+        </p>
+        <div class="text-2xl font-bold mb-1">
+          <span class="en">Custom pricing</span><span class="tr">Özel fiyat</span>
+        </div>
+        <p class="text-gray-500 text-xs mb-8">
+          <span class="en">tailored to your needs</span><span class="tr">ihtiyacınıza özel</span>
+        </p>
+        <ul class="text-sm text-gray-300 space-y-3 mb-8">
+          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Unlimited activations</span><span class="tr">Sınırsız aktivasyon</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Dedicated support</span><span class="tr">Özel destek</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Volume discounts</span><span class="tr">Toplu indirim</span></li>
+        </ul>
+        <a href="mailto:sales@printzen.app" class="block text-center bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition">
+          <span class="en">Contact Sales</span><span class="tr">Bize Ulaşın</span>
+        </a>
+      </div>
+
+    </div>
     </div>
 
     <!-- Full Features Plans -->
@@ -157,8 +233,8 @@
         <p class="text-gray-400 text-sm mb-6">
           <span class="en">1 device</span><span class="tr">1 cihaz</span>
         </p>
-        <div class="text-5xl font-bold mb-1">$15</div>
-        <p class="text-gray-400 text-xs -mt-1 mb-1">$15 / device</p>
+        <div class="text-5xl font-bold mb-1">$14.90</div>
+        <p class="text-gray-400 text-xs -mt-1 mb-1">$14.90 / device</p>
         <p class="text-gray-400 text-xs mb-8">
           <span class="en">one-time</span><span class="tr">tek seferlik</span>
         </p>
@@ -183,8 +259,8 @@
         <p class="text-blue-200 text-sm mb-6">
           <span class="en">5 devices</span><span class="tr">5 cihaz</span>
         </p>
-        <div class="text-5xl font-bold mb-1">$69</div>
-        <p class="text-blue-300 text-xs -mt-1 mb-1">$13.8 / device</p>
+        <div class="text-5xl font-bold mb-1">$69.90</div>
+        <p class="text-blue-300 text-xs -mt-1 mb-1">$13.98 / device</p>
         <p class="text-blue-300 text-xs mb-8">
           <span class="en">one-time</span><span class="tr">tek seferlik</span>
         </p>
@@ -206,8 +282,8 @@
         <p class="text-gray-400 text-sm mb-6">
           <span class="en">10 devices</span><span class="tr">10 cihaz</span>
         </p>
-        <div class="text-5xl font-bold mb-1">$129</div>
-        <p class="text-gray-400 text-xs -mt-1 mb-1">$12.9 / device</p>
+        <div class="text-5xl font-bold mb-1">$129.90</div>
+        <p class="text-gray-400 text-xs -mt-1 mb-1">$12.99 / device</p>
         <p class="text-gray-400 text-xs mb-8">
           <span class="en">one-time</span><span class="tr">tek seferlik</span>
         </p>
