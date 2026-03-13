@@ -99,10 +99,56 @@
       <span class="en">Simple, one-time pricing</span>
       <span class="tr">Basit, tek seferlik ödeme</span>
     </h2>
-    <p class="text-center text-gray-500 mb-12">
+    <p class="text-center text-gray-500 mb-8">
       <span class="en">Buy once, use forever. No subscriptions.</span>
       <span class="tr">Bir kez öde, sonsuza kadar kullan. Abonelik yok.</span>
     </p>
+
+    <!-- Plan Toggle -->
+    <div class="flex justify-center mb-12">
+      <div class="inline-flex bg-gray-100 rounded-xl p-1 gap-1">
+        <button id="btn-bt" onclick="setPlanType('bt')"
+          class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all bg-white shadow text-gray-900">
+          <span class="en">Bluetooth Only</span><span class="tr">Sadece Bluetooth</span>
+        </button>
+        <button id="btn-full" onclick="setPlanType('full')"
+          class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-gray-500 hover:text-gray-700">
+          <span class="en">Full Features</span><span class="tr">Tüm Özellikler</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- BT Only Plan -->
+    <div id="plans-bt" class="flex justify-center">
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 w-full max-w-xs">
+        <div class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          <span class="en">Bluetooth Only</span><span class="tr">Sadece Bluetooth</span>
+        </div>
+        <h3 class="font-bold text-xl mb-1">BT Basic</h3>
+        <p class="text-gray-400 text-sm mb-6">
+          <span class="en">1 device</span><span class="tr">1 cihaz</span>
+        </p>
+        <div class="text-5xl font-bold mb-1">$9.90</div>
+        <p class="text-gray-400 text-xs -mt-1 mb-1">$9.90 / device</p>
+        <p class="text-gray-400 text-xs mb-8">
+          <span class="en">one-time</span><span class="tr">tek seferlik</span>
+        </p>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8">
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">1 device activation</span><span class="tr">1 cihaz aktivasyonu</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
+          <li class="flex items-center gap-2"><span class="text-gray-300">✗</span> <span class="text-gray-400 en">Wi-Fi / USB printing</span><span class="text-gray-400 tr">Wi-Fi / USB yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-gray-300">✗</span> <span class="text-gray-400 en">HTTP API</span><span class="text-gray-400 tr">HTTP API</span></li>
+        </ul>
+        <a href="#" onclick="buyPlan('pri_01kkgzak9b6yvvs7t2ajdtk2ay_BT'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Full Features Plans -->
+    <div id="plans-full" class="hidden">
     <div class="grid md:grid-cols-4 gap-6 items-start">
 
       <!-- Basic -->
@@ -118,7 +164,8 @@
         </p>
         <ul class="text-sm text-gray-600 space-y-3 mb-8">
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">1 device activation</span><span class="tr">1 cihaz aktivasyonu</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">All Pro features</span><span class="tr">Tüm Pro özellikler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth + Wi-Fi + USB</span><span class="tr">Bluetooth + Wi-Fi + USB</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">HTTP API access</span><span class="tr">HTTP API erişimi</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
         </ul>
@@ -143,7 +190,8 @@
         </p>
         <ul class="text-sm text-blue-100 space-y-3 mb-8">
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">5 device activations</span><span class="tr">5 cihaz aktivasyonu</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">All Pro features</span><span class="tr">Tüm Pro özellikler</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Bluetooth + Wi-Fi + USB</span><span class="tr">Bluetooth + Wi-Fi + USB</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">HTTP API access</span><span class="tr">HTTP API erişimi</span></li>
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
         </ul>
@@ -165,7 +213,8 @@
         </p>
         <ul class="text-sm text-gray-600 space-y-3 mb-8">
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">10 device activations</span><span class="tr">10 cihaz aktivasyonu</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">All Pro features</span><span class="tr">Tüm Pro özellikler</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth + Wi-Fi + USB</span><span class="tr">Bluetooth + Wi-Fi + USB</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">HTTP API access</span><span class="tr">HTTP API erişimi</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Priority support</span><span class="tr">Öncelikli destek</span></li>
         </ul>
@@ -198,6 +247,7 @@
       </div>
 
     </div>
+    </div><!-- /plans-full -->
   </section>
 
   <!-- Footer -->
@@ -222,6 +272,25 @@
         items: [{ priceId: priceId, quantity: 1 }],
         settings: { displayMode: 'overlay', theme: 'light' }
       });
+    }
+
+    function setPlanType(type) {
+      const isBt = type === 'bt';
+      document.getElementById('plans-bt').classList.toggle('hidden', !isBt);
+      document.getElementById('plans-full').classList.toggle('hidden', isBt);
+      const btnBt = document.getElementById('btn-bt');
+      const btnFull = document.getElementById('btn-full');
+      if (isBt) {
+        btnBt.classList.add('bg-white', 'shadow', 'text-gray-900');
+        btnBt.classList.remove('text-gray-500');
+        btnFull.classList.remove('bg-white', 'shadow', 'text-gray-900');
+        btnFull.classList.add('text-gray-500');
+      } else {
+        btnFull.classList.add('bg-white', 'shadow', 'text-gray-900');
+        btnFull.classList.remove('text-gray-500');
+        btnBt.classList.remove('bg-white', 'shadow', 'text-gray-900');
+        btnBt.classList.add('text-gray-500');
+      }
     }
 
     function toggleLang() {
