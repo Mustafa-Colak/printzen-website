@@ -7,7 +7,6 @@
   <meta name="description" content="Print from any Android app to any thermal printer. Bluetooth, Wi-Fi, USB support.">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <style>
     .tr { display: none; }
     html[lang="tr"] .en { display: none; }
@@ -23,7 +22,7 @@
       <div class="flex items-center gap-4">
         <button onclick="toggleLang()" id="langBtn" class="text-sm border border-gray-300 rounded px-3 py-1 hover:bg-gray-100 transition">TR</button>
         <a href="#pricing" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
-          <span class="en">Get License</span><span class="tr">Lisans Al</span>
+          <span class="en">Get on Play Store</span><span class="tr">Play Store'dan Al</span>
         </a>
       </div>
     </div>
@@ -43,15 +42,20 @@
       <span class="tr">Mobile Print Service, Android cihazınızı sistem yazdırma dialogu üzerinden fiş ve etiket yazıcılara Bluetooth, Wi-Fi veya USB ile bağlar.</span>
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/MobilePrintService.apk"
+      <!-- Play Store CTA (URL play store'a yayınlandıktan sonra güncellenecek) -->
+      <a href="#pricing"
          class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition inline-flex items-center gap-2 shadow-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        <span class="en">Download APK (v2.5.7)</span><span class="tr">APK İndir (v2.5.7)</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1.01-1.3 1.66-.78l15 8.5a1 1 0 010 1.56l-15 8.5C4.01 21.8 3 21.33 3 20.5z"/></svg>
+        <span class="en">Get on Google Play</span><span class="tr">Google Play'den İndir</span>
       </a>
       <a href="#pricing" class="bg-white text-blue-600 border border-blue-200 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition inline-block shadow">
         <span class="en">View Pricing →</span><span class="tr">Fiyatları Gör →</span>
       </a>
     </div>
+    <p class="text-sm text-gray-400 mt-4">
+      <span class="en">30-day free trial · No credit card required</span>
+      <span class="tr">30 günlük ücretsiz deneme · Kredi kartı gerekmez</span>
+    </p>
   </section>
 
   <!-- Features -->
@@ -94,239 +98,77 @@
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="max-w-5xl mx-auto px-4 py-20">
+  <section id="pricing" class="max-w-4xl mx-auto px-4 py-20">
     <h2 class="text-3xl font-bold text-center mb-4">
       <span class="en">Simple, one-time pricing</span>
       <span class="tr">Basit, tek seferlik ödeme</span>
     </h2>
-    <p class="text-center text-gray-500 mb-8">
-      <span class="en">Buy once, use forever. No subscriptions.</span>
-      <span class="tr">Bir kez öde, sonsuza kadar kullan. Abonelik yok.</span>
+    <p class="text-center text-gray-500 mb-12">
+      <span class="en">Buy once on Google Play, use forever. No subscriptions.</span>
+      <span class="tr">Google Play'den bir kez öde, sonsuza kadar kullan. Abonelik yok.</span>
     </p>
 
-    <!-- Plan Toggle -->
-    <div class="flex justify-center mb-12">
-      <div class="inline-flex bg-gray-100 rounded-xl p-1 gap-1">
-        <button id="btn-bt" onclick="setPlanType('bt')"
-          class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all bg-white shadow text-gray-900">
-          <span class="en">Bluetooth Only</span><span class="tr">Sadece Bluetooth</span>
-        </button>
-        <button id="btn-full" onclick="setPlanType('full')"
-          class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-gray-500 hover:text-gray-700">
-          BT + Wi-Fi + HTTP API
-        </button>
-      </div>
-    </div>
+    <div class="grid md:grid-cols-2 gap-8 items-stretch">
 
-    <!-- BT Only Plans -->
-    <div id="plans-bt">
-    <div class="grid md:grid-cols-4 gap-6 items-start">
-
-      <!-- BT Basic -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-        <h3 class="font-bold text-xl mb-1">BT Basic</h3>
-        <p class="text-gray-400 text-sm mb-6">
-          <span class="en">1 device</span><span class="tr">1 cihaz</span>
+      <!-- BT Plan -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 flex flex-col">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="bg-blue-50 rounded-xl p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5l8 6-8 6V5zM16 5v14"/></svg>
+          </div>
+          <h3 class="font-bold text-xl">BT Plan</h3>
+        </div>
+        <div class="text-5xl font-bold mb-1 mt-4">$9.90</div>
+        <p class="text-gray-400 text-xs mb-6">
+          <span class="en">one-time · Google Play</span><span class="tr">tek seferlik · Google Play</span>
         </p>
-        <div class="text-5xl font-bold mb-1">$9.90</div>
-        <p class="text-gray-400 text-xs -mt-1 mb-1">$9.90 / device</p>
-        <p class="text-gray-400 text-xs mb-8">
-          <span class="en">one-time</span><span class="tr">tek seferlik</span>
-        </p>
-        <ul class="text-sm text-gray-600 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">1 device activation</span><span class="tr">1 cihaz aktivasyonu</span></li>
+        <ul class="text-sm text-gray-600 space-y-3 mb-8 flex-1">
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">USB OTG printing</span><span class="tr">USB OTG yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">All printer brands</span><span class="tr">Tüm yazıcı markaları</span></li>
           <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
           <li class="flex items-center gap-2"><span class="text-red-400">✗</span> <span class="line-through en">Wi-Fi printing</span><span class="line-through tr">Wi-Fi yazdırma</span></li>
           <li class="flex items-center gap-2"><span class="text-red-400">✗</span> <span class="line-through en">HTTP API</span><span class="line-through tr">HTTP API</span></li>
         </ul>
-        <a href="#" onclick="buyPlan('pri_01kkkk1n8f73ngcav096xef6h0'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
-          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
+        <a href="#" class="block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
+          <span class="en">Get on Play Store</span><span class="tr">Play Store'dan Al</span>
         </a>
       </div>
 
-      <!-- BT Standard (Popular) -->
-      <div class="bg-blue-600 rounded-2xl p-8 shadow-xl text-white relative">
+      <!-- Full Plan (Popular) -->
+      <div class="bg-blue-600 rounded-2xl p-8 shadow-xl text-white relative flex flex-col">
         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-400 text-white text-xs px-4 py-1.5 rounded-full font-bold whitespace-nowrap">
-          <span class="en">MOST POPULAR</span><span class="tr">EN POPÜLER</span>
+          <span class="en">RECOMMENDED</span><span class="tr">ÖNERİLEN</span>
         </div>
-        <h3 class="font-bold text-xl mb-1">BT Standard</h3>
-        <p class="text-blue-200 text-sm mb-6">
-          <span class="en">5 devices</span><span class="tr">5 cihaz</span>
+        <div class="flex items-center gap-3 mb-2">
+          <div class="bg-white/20 rounded-xl p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+          </div>
+          <h3 class="font-bold text-xl">Full Plan</h3>
+        </div>
+        <div class="text-5xl font-bold mb-1 mt-4">$14.90</div>
+        <p class="text-blue-200 text-xs mb-6">
+          <span class="en">one-time · Google Play</span><span class="tr">tek seferlik · Google Play</span>
         </p>
-        <div class="text-5xl font-bold mb-1">$39.90</div>
-        <p class="text-blue-300 text-xs -mt-1 mb-1">$7.98 / device</p>
-        <p class="text-blue-300 text-xs mb-8">
-          <span class="en">one-time</span><span class="tr">tek seferlik</span>
-        </p>
-        <ul class="text-sm text-blue-100 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">5 device activations</span><span class="tr">5 cihaz aktivasyonu</span></li>
+        <ul class="text-sm text-blue-100 space-y-3 mb-8 flex-1">
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">USB OTG printing</span><span class="tr">USB OTG yazdırma</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">All printer brands</span><span class="tr">Tüm yazıcı markaları</span></li>
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
-          <li class="flex items-center gap-2"><span class="text-red-300">✗</span> <span class="line-through text-blue-100 en">Wi-Fi printing</span><span class="line-through text-blue-100 tr">Wi-Fi yazdırma</span></li>
-          <li class="flex items-center gap-2"><span class="text-red-300">✗</span> <span class="line-through text-blue-100 en">HTTP API</span><span class="line-through text-blue-100 tr">HTTP API</span></li>
-        </ul>
-        <a href="#" onclick="buyPlan('pri_01kkkk4xj5x180jkh449r6k1s0'); return false;" class="buy-btn block text-center bg-white text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition">
-          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
-        </a>
-      </div>
-
-      <!-- BT Business -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-        <h3 class="font-bold text-xl mb-1">BT Business</h3>
-        <p class="text-gray-400 text-sm mb-6">
-          <span class="en">10 devices</span><span class="tr">10 cihaz</span>
-        </p>
-        <div class="text-5xl font-bold mb-1">$69.90</div>
-        <p class="text-gray-400 text-xs -mt-1 mb-1">$6.99 / device</p>
-        <p class="text-gray-400 text-xs mb-8">
-          <span class="en">one-time</span><span class="tr">tek seferlik</span>
-        </p>
-        <ul class="text-sm text-gray-600 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">10 device activations</span><span class="tr">10 cihaz aktivasyonu</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">USB OTG printing</span><span class="tr">USB OTG yazdırma</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Priority support</span><span class="tr">Öncelikli destek</span></li>
-          <li class="flex items-center gap-2"><span class="text-red-400">✗</span> <span class="line-through en">Wi-Fi printing</span><span class="line-through tr">Wi-Fi yazdırma</span></li>
-          <li class="flex items-center gap-2"><span class="text-red-400">✗</span> <span class="line-through en">HTTP API</span><span class="line-through tr">HTTP API</span></li>
-        </ul>
-        <a href="#" onclick="buyPlan('pri_01kkkk6rr87phwzdkbd1r58sbk'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
-          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
-        </a>
-      </div>
-
-      <!-- BT Enterprise -->
-      <div class="bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-700 text-white">
-        <h3 class="font-bold text-xl mb-1">BT Enterprise</h3>
-        <p class="text-gray-400 text-sm mb-6">
-          <span class="en">Unlimited devices</span><span class="tr">Sınırsız cihaz</span>
-        </p>
-        <div class="text-2xl font-bold mb-1">
-          <span class="en">Custom pricing</span><span class="tr">Özel fiyat</span>
-        </div>
-        <p class="text-gray-500 text-xs mb-8">
-          <span class="en">tailored to your needs</span><span class="tr">ihtiyacınıza özel</span>
-        </p>
-        <ul class="text-sm text-gray-300 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Unlimited activations</span><span class="tr">Sınırsız aktivasyon</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Bluetooth printing</span><span class="tr">Bluetooth yazdırma</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Dedicated support</span><span class="tr">Özel destek</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Volume discounts</span><span class="tr">Toplu indirim</span></li>
-        </ul>
-        <a href="mailto:sales@printzen.app" class="block text-center bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition">
-          <span class="en">Contact Sales</span><span class="tr">Bize Ulaşın</span>
-        </a>
-      </div>
-
-    </div>
-    </div>
-
-    <!-- Full Features Plans -->
-    <div id="plans-full" class="hidden">
-    <div class="grid md:grid-cols-4 gap-6 items-start">
-
-      <!-- Basic -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-        <h3 class="font-bold text-xl mb-1">Basic</h3>
-        <p class="text-gray-400 text-sm mb-6">
-          <span class="en">1 device</span><span class="tr">1 cihaz</span>
-        </p>
-        <div class="text-5xl font-bold mb-1">$14.90</div>
-        <p class="text-gray-400 text-xs -mt-1 mb-1">$14.90 / device</p>
-        <p class="text-gray-400 text-xs mb-8">
-          <span class="en">one-time</span><span class="tr">tek seferlik</span>
-        </p>
-        <ul class="text-sm text-gray-600 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">1 device activation</span><span class="tr">1 cihaz aktivasyonu</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth + Wi-Fi + USB</span><span class="tr">Bluetooth + Wi-Fi + USB</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">HTTP API access</span><span class="tr">HTTP API erişimi</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
-        </ul>
-        <a href="#" onclick="buyPlan('pri_01kkgzak9b6yvvs7t2ajdtk2ay'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
-          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
-        </a>
-      </div>
-
-      <!-- Standard (Popular) -->
-      <div class="bg-blue-600 rounded-2xl p-8 shadow-xl text-white relative">
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-400 text-white text-xs px-4 py-1.5 rounded-full font-bold whitespace-nowrap">
-          <span class="en">MOST POPULAR</span><span class="tr">EN POPÜLER</span>
-        </div>
-        <h3 class="font-bold text-xl mb-1">Standard</h3>
-        <p class="text-blue-200 text-sm mb-6">
-          <span class="en">5 devices</span><span class="tr">5 cihaz</span>
-        </p>
-        <div class="text-5xl font-bold mb-1">$69.90</div>
-        <p class="text-blue-300 text-xs -mt-1 mb-1">$13.98 / device</p>
-        <p class="text-blue-300 text-xs mb-8">
-          <span class="en">one-time</span><span class="tr">tek seferlik</span>
-        </p>
-        <ul class="text-sm text-blue-100 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">5 device activations</span><span class="tr">5 cihaz aktivasyonu</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Bluetooth + Wi-Fi + USB</span><span class="tr">Bluetooth + Wi-Fi + USB</span></li>
+          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Wi-Fi printing</span><span class="tr">Wi-Fi yazdırma</span></li>
           <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">HTTP API access</span><span class="tr">HTTP API erişimi</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-200">✓</span> <span class="en">Email support</span><span class="tr">E-posta desteği</span></li>
         </ul>
-        <a href="#" onclick="buyPlan('pri_01kkgzd07mp4hw2c39apyfxqhs'); return false;" class="buy-btn block text-center bg-white text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition">
-          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
-        </a>
-      </div>
-
-      <!-- Business -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-        <h3 class="font-bold text-xl mb-1">Business</h3>
-        <p class="text-gray-400 text-sm mb-6">
-          <span class="en">10 devices</span><span class="tr">10 cihaz</span>
-        </p>
-        <div class="text-5xl font-bold mb-1">$129.90</div>
-        <p class="text-gray-400 text-xs -mt-1 mb-1">$12.99 / device</p>
-        <p class="text-gray-400 text-xs mb-8">
-          <span class="en">one-time</span><span class="tr">tek seferlik</span>
-        </p>
-        <ul class="text-sm text-gray-600 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">10 device activations</span><span class="tr">10 cihaz aktivasyonu</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Bluetooth + Wi-Fi + USB</span><span class="tr">Bluetooth + Wi-Fi + USB</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">HTTP API access</span><span class="tr">HTTP API erişimi</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Free updates</span><span class="tr">Ücretsiz güncellemeler</span></li>
-          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span class="en">Priority support</span><span class="tr">Öncelikli destek</span></li>
-        </ul>
-        <a href="#" onclick="buyPlan('pri_01kkgzn5q0r7fkyctf2t6cgvwa'); return false;" class="buy-btn block text-center bg-gray-900 text-white py-3 rounded-xl font-medium hover:bg-gray-700 transition">
-          <span class="en">Buy Now</span><span class="tr">Satın Al</span>
-        </a>
-      </div>
-
-      <!-- Enterprise -->
-      <div class="bg-gray-900 rounded-2xl p-8 shadow-sm border border-gray-700 text-white">
-        <h3 class="font-bold text-xl mb-1">Enterprise</h3>
-        <p class="text-gray-400 text-sm mb-6">
-          <span class="en">Unlimited devices</span><span class="tr">Sınırsız cihaz</span>
-        </p>
-        <div class="text-2xl font-bold mb-1">
-          <span class="en">Custom pricing</span><span class="tr">Özel fiyat</span>
-        </div>
-        <p class="text-gray-500 text-xs mb-8">
-          <span class="en">tailored to your needs</span><span class="tr">ihtiyacınıza özel</span>
-        </p>
-        <ul class="text-sm text-gray-300 space-y-3 mb-8">
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Unlimited activations</span><span class="tr">Sınırsız aktivasyon</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Custom integrations</span><span class="tr">Özel entegrasyonlar</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Dedicated support</span><span class="tr">Özel destek</span></li>
-          <li class="flex items-center gap-2"><span class="text-blue-400">✓</span> <span class="en">Volume discounts</span><span class="tr">Toplu indirim</span></li>
-        </ul>
-        <a href="mailto:sales@printzen.app" class="block text-center bg-blue-600 text-white py-3 rounded-xl font-medium hover:bg-blue-700 transition">
-          <span class="en">Contact Sales</span><span class="tr">Bize Ulaşın</span>
+        <a href="#" class="block text-center bg-white text-blue-600 py-3 rounded-xl font-medium hover:bg-blue-50 transition">
+          <span class="en">Get on Play Store</span><span class="tr">Play Store'dan Al</span>
         </a>
       </div>
 
     </div>
-    </div><!-- /plans-full -->
+
+    <p class="text-center text-gray-400 text-sm mt-8">
+      <span class="en">Both plans include a 30-day free trial. Cancel anytime before trial ends.</span>
+      <span class="tr">Her iki plan da 30 günlük ücretsiz deneme içerir. Deneme bitmeden istediğiniz zaman iptal edin.</span>
+    </p>
   </section>
 
   <!-- Footer -->
@@ -343,35 +185,6 @@
   </footer>
 
   <script>
-    // Paddle Billing v2
-    Paddle.Initialize({ token: 'live_a232701421a84ae13568067ed6e' });
-
-    function buyPlan(priceId) {
-      Paddle.Checkout.open({
-        items: [{ priceId: priceId, quantity: 1 }],
-        settings: { displayMode: 'overlay', theme: 'light' }
-      });
-    }
-
-    function setPlanType(type) {
-      const isBt = type === 'bt';
-      document.getElementById('plans-bt').classList.toggle('hidden', !isBt);
-      document.getElementById('plans-full').classList.toggle('hidden', isBt);
-      const btnBt = document.getElementById('btn-bt');
-      const btnFull = document.getElementById('btn-full');
-      if (isBt) {
-        btnBt.classList.add('bg-white', 'shadow', 'text-gray-900');
-        btnBt.classList.remove('text-gray-500');
-        btnFull.classList.remove('bg-white', 'shadow', 'text-gray-900');
-        btnFull.classList.add('text-gray-500');
-      } else {
-        btnFull.classList.add('bg-white', 'shadow', 'text-gray-900');
-        btnFull.classList.remove('text-gray-500');
-        btnBt.classList.remove('bg-white', 'shadow', 'text-gray-900');
-        btnBt.classList.add('text-gray-500');
-      }
-    }
-
     function toggleLang() {
       const html = document.documentElement;
       const btn = document.getElementById('langBtn');
