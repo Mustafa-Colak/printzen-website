@@ -24,6 +24,8 @@ const guides = defineCollection({
     printerClass: z.enum(['mobile', 'desktop', 'industrial']),
     brand: z.string().optional(),
     publishDate: z.date(),
+    /** Shared identifier pairing the en/ and tr/ versions of the same guide (slugs differ per locale). */
+    translationKey: z.string(),
   }),
 });
 

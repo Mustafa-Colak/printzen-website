@@ -15,7 +15,7 @@ transfer yazdırma konularında içerik portalı.
 Site iki dilde: İngilizce (varsayılan) ve Türkçe.
 
 - **İngilizce sayfalar önek almaz:** `/`, `/guides`, `/terms` ...
-- **Türkçe sayfalar `/tr/` önekiyle:** `/tr/`, `/tr/guides`, `/tr/terms` ...
+- **Türkçe sayfalar `/tr/` önekiyle:** `/tr/`, `/tr/rehberler`, `/tr/terms` ...
 
 Her sayfa **ayrı, tek dilde statik bir HTML dosyası** olarak üretilir — eski
 "tek URL + CSS ile göster/gizle" yaklaşımı SEO için terk edildi (Google'ın
@@ -27,31 +27,49 @@ Her sayfa çiftinde:
 - `<link rel="alternate" hreflang="en"|"tr"|"x-default">` — karşılıklı bağlantı
 - Nav'daki dil butonu artık JS toggle değil, karşı dildeki **gerçek sayfa linki**
 
-Yeni bir sayfa eklerken diğer dildeki karşılığını da eklemeyi unutma —
-`src/utils/i18n.ts`'deki `getAlternatePath()` fonksiyonu URL eşlemesini
-otomatik yapar, sen sadece iki dosyayı da oluşturman yeterli.
+**Önemli:** URL segmentleri de dile göre çevrilir, sadece `/tr` önek eklenmez —
+`guides` → `rehberler`, `printers` → `yazicilar` (Türkçe arama sonuçlarında
+daha iyi eşleşme + daha "yerli" görünüm için). Bu yüzden çoğu sayfada
+`getAlternatePath()`'in genel `/tr` önek-değiştirme mantığı YETERSİZ kalır —
+`BaseLayout`/`Nav`'a açık bir `alternatePath` prop'u geçilerek bu durum
+override edilir (bkz. `guides/index.astro` ↔ `tr/rehberler/index.astro`,
+`printers/index.astro` ↔ `tr/yazicilar/index.astro`).
+
+Rehber detay sayfalarında (`guides/[slug].astro`) slug'lar da dile göre
+çevrilir (örn. `android-bluetooth-printer-setup` ↔
+`android-bluetooth-yazici-kurulumu`) — bu yüzden eşleştirme dosya adı yerine
+frontmatter'daki ortak `translationKey` alanıyla yapılır (aşağıya bkz.).
+
+Yeni bir **statik sayfa** (terms/privacy/refund gibi, slug'ı sabit) eklerken
+diğer dildeki karşılığını da eklemen yeterli — `getAlternatePath()` otomatik
+eşler. Yeni bir **rehber/slug'lı sayfa** eklerken `alternatePath`'i elle
+hesaplayıp geçmen gerekir (mevcut `[slug].astro` dosyalarındaki örneğe bak).
 
 ## İçerik Yönetimi (Content Collections)
 
 `src/content/` altında iki koleksiyon (bkz. `src/content/config.ts`):
 
 ### `printers` (data koleksiyonu, YAML)
-Yazıcı uyumluluk veritabanı girişleri (`/printers`, `/tr/printers`). Her
+Yazıcı uyumluluk veritabanı girişleri (`/printers`, `/tr/yazicilar`). Her
 dosya bir yazıcı modeli: marka, sınıf (mobile/desktop/industrial), bağlantı
 tipi, komut dili, baskı türü, Mobile Print Service tarafından destek
 durumu. `notes` alanı `{en, tr}` olarak iki dilli.
 
 ### `guides` (content koleksiyonu, Markdown)
-Kurulum rehberleri (`/guides/[slug]`, `/tr/guides/[slug]`).
-`src/content/guides/en/` ve `src/content/guides/tr/` altında **aynı dosya
-adıyla** eşleştirilmiş çiftler halinde tutulur — örn.
-`en/android-bluetooth-printer-setup.md` +
-`tr/android-bluetooth-printer-setup.md`. Slug, klasör önekinden
-(`en/`, `tr/`) arındırılarak üretilir.
+Kurulum rehberleri (`/guides/[slug]`, `/tr/rehberler/[slug]`).
+`src/content/guides/en/` ve `src/content/guides/tr/` altında **dosya adı
+İngilizce/Türkçe farklı olabilir** — örn. `en/android-bluetooth-printer-setup.md`
++ `tr/android-bluetooth-yazici-kurulumu.md`. Slug, klasör önekinden
+(`en/`, `tr/`) arındırılarak üretilir (yani dosya adı = URL slug'ı).
 
-Yeni rehber eklemek için: iki dilde de aynı dosya adıyla birer `.md`
-oluştur, frontmatter'da `title`, `description`, `printerClass`,
-(opsiyonel) `brand`, `publishDate` doldur.
+Eşleştirme dosya adına değil, frontmatter'daki **`translationKey`** alanına
+göre yapılır — iki dildeki karşılık gelen dosyalar aynı `translationKey`
+değerine sahip olmalı (örn. ikisi de `translationKey: android-bluetooth-printer-setup`).
+
+Yeni rehber eklemek için: iki dilde birer `.md` oluştur (dosya adları farklı
+olabilir, Türkçe slug Türkçe olsun), frontmatter'da `title`, `description`,
+`printerClass`, (opsiyonel) `brand`, `publishDate`, ve **aynı `translationKey`**
+değerini doldur.
 
 ## SEO
 
@@ -78,8 +96,8 @@ src/pages/
   activate.astro           (Türkçe özel: uygulama lisans aktivasyon deep-link sayfası, dil çiftlemesi yok)
   tr/
     index.astro / terms.astro / privacy.astro / refund.astro
-    guides/index.astro / guides/[slug].astro
-    printers/index.astro
+    rehberler/index.astro / rehberler/[slug].astro
+    yazicilar/index.astro
 ```
 
 ## Geliştirme

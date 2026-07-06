@@ -4,17 +4,20 @@ import { getAlternatePath, type Locale } from '../utils/i18n';
 interface Props {
   lang: Locale;
   wide?: boolean;
+  /** Override the auto-computed alternate-locale URL — needed when the two locales use different slugs. */
+  alternatePath?: string;
 }
-const { lang, wide = false } = Astro.props;
-const prefix = lang === 'tr' ? '/tr' : '';
-const alternatePath = getAlternatePath(Astro.url.pathname, lang);
+const { lang, wide = false, alternatePath: alternatePathProp } = Astro.props;
+const guidesPath = lang === 'tr' ? '/tr/rehberler' : '/guides';
+const printersPath = lang === 'tr' ? '/tr/yazicilar' : '/printers';
+const alternatePath = alternatePathProp ?? getAlternatePath(Astro.url.pathname, lang);
 ---
 <nav class="bg-white shadow-sm sticky top-0 z-10">
   <div class={`${wide ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4 py-4 flex items-center justify-between gap-4`}>
     <a href={lang === 'tr' ? '/tr/' : '/'} class="text-2xl font-bold text-blue-600 shrink-0">Printzen Apps</a>
     <div class="hidden sm:flex items-center gap-5 text-sm text-gray-600">
-      <a href={`${prefix}/guides`} class="hover:text-blue-600 transition">{lang === 'tr' ? 'Rehberler' : 'Guides'}</a>
-      <a href={`${prefix}/printers`} class="hover:text-blue-600 transition">{lang === 'tr' ? 'Yazıcılar' : 'Printers'}</a>
+      <a href={guidesPath} class="hover:text-blue-600 transition">{lang === 'tr' ? 'Rehberler' : 'Guides'}</a>
+      <a href={printersPath} class="hover:text-blue-600 transition">{lang === 'tr' ? 'Yazıcılar' : 'Printers'}</a>
     </div>
     <div class="flex items-center gap-4">
       <a href={alternatePath} class="text-sm border border-gray-300 rounded px-3 py-1 hover:bg-gray-100 transition">

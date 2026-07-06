@@ -3,6 +3,7 @@ title: "Android'de Bluetooth Termal Yazıcı Kurulumu"
 description: "Android telefon veya tabletinizi Bluetooth termal yazıcıya bağlayıp sistem yazdırma menüsünden fiş veya etiket basmayı öğrenin."
 printerClass: mobile
 publishDate: 2026-07-06
+translationKey: android-bluetooth-printer-setup
 ---
 
 Android'in yerleşik Print Service çerçevesi, bir yazdırma servisi kurulduğunda herhangi bir uygulamadan (Chrome, Google Docs, e-ticaret uygulamaları vb.) doğrudan termal yazıcıya baskı almanıza izin verir. Bu rehber, Bluetooth bağlantılı bir termal yazıcıyı Android cihazınıza tanıtma adımlarını anlatır.

@@ -5,10 +5,12 @@ interface Props {
   title: string;
   description?: string;
   lang: Locale;
+  /** Override the auto-computed alternate-locale URL — needed when the two locales use different slugs (e.g. translated guide URLs). */
+  alternatePath?: string;
 }
-const { title, description, lang } = Astro.props;
+const { title, description, lang, alternatePath: alternatePathProp } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const alternatePath = getAlternatePath(Astro.url.pathname, lang);
+const alternatePath = alternatePathProp ?? getAlternatePath(Astro.url.pathname, lang);
 const alternateURL = new URL(alternatePath, Astro.site);
 const enURL = lang === 'en' ? canonicalURL : alternateURL;
 const trURL = lang === 'tr' ? canonicalURL : alternateURL;

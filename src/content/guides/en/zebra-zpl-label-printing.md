@@ -4,6 +4,7 @@ description: "How ZPL works on Zebra desktop label printers, and how to send ZPL
 printerClass: desktop
 brand: Zebra
 publishDate: 2026-07-06
+translationKey: zebra-zpl-label-printing
 ---
 
 Most of Zebra's desktop and industrial label printers use the **ZPL (Zebra Programming Language)** command language. ZPL is a plain-text command set — you describe the position, size, and content of text, barcodes, and lines on a label with commands.

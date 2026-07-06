@@ -3,6 +3,7 @@ title: "Bluetooth Thermal Printer Setup on Android"
 description: "Connect your Android phone or tablet to a Bluetooth thermal printer and print receipts or labels from the system print dialog."
 printerClass: mobile
 publishDate: 2026-07-06
+translationKey: android-bluetooth-printer-setup
 ---
 
 Android's built-in Print Service framework lets any app (Chrome, Google Docs, e-commerce apps, etc.) print directly to a thermal printer once a print service is installed. This guide covers pairing a Bluetooth thermal printer with your Android device.

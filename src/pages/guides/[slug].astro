@@ -19,6 +19,10 @@ interface Props {
 const { guide } = Astro.props;
 const { Content } = await guide.render();
 
+const trGuide = (await getCollection('guides', (entry) => entry.slug.startsWith('tr/')))
+  .find((entry) => entry.data.translationKey === guide.data.translationKey);
+const alternatePath = trGuide ? `/tr/rehberler/${trGuide.slug.replace(/^tr\//, '')}/` : '/tr/rehberler/';
+
 const classLabels: Record<string, string> = {
   mobile: 'Mobile',
   desktop: 'Desktop',
@@ -34,9 +38,9 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'Printzen' },
 };
 ---
-<BaseLayout lang="en" title={`${guide.data.title} — Printzen`} description={guide.data.description}>
+<BaseLayout lang="en" title={`${guide.data.title} — Printzen`} description={guide.data.description} alternatePath={alternatePath}>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  <Nav lang="en" />
+  <Nav lang="en" alternatePath={alternatePath} />
 
   <main class="max-w-3xl mx-auto px-4 py-16">
     <a href="/guides" class="text-sm text-blue-600 hover:underline">← All guides</a>

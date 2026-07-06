@@ -14,8 +14,8 @@ const classLabels: Record<string, string> = {
   industrial: 'Endüstriyel',
 };
 ---
-<BaseLayout lang="tr" title="Kurulum Rehberleri — Printzen" description="Termal ve termal transfer yazıcılar için marka ve bağlantı tipine göre adım adım kurulum rehberleri.">
-  <Nav wide lang="tr" />
+<BaseLayout lang="tr" title="Kurulum Rehberleri — Printzen" description="Termal ve termal transfer yazıcılar için marka ve bağlantı tipine göre adım adım kurulum rehberleri." alternatePath="/guides/">
+  <Nav wide lang="tr" alternatePath="/guides/" />
 
   <main class="max-w-5xl mx-auto px-4 py-16">
     <h1 class="text-3xl font-bold mb-2">Kurulum Rehberleri</h1>
@@ -23,7 +23,7 @@ const classLabels: Record<string, string> = {
 
     <div class="grid md:grid-cols-2 gap-6">
       {guides.map((guide) => (
-        <a href={`/tr/guides/${guide.slug.replace(/^tr\//, '')}`} class="block bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-200 transition">
+        <a href={`/tr/rehberler/${guide.slug.replace(/^tr\//, '')}`} class="block bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-200 transition">
           <span class="inline-block text-xs font-medium text-blue-600 bg-blue-50 rounded-full px-3 py-1 mb-3">
             {classLabels[guide.data.printerClass]}{guide.data.brand ? ` · ${guide.data.brand}` : ''}
           </span>

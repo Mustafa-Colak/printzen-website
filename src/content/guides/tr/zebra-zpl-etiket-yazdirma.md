@@ -4,6 +4,7 @@ description: "Zebra masaüstü etiket yazıcılarında ZPL komut dili nasıl ça
 printerClass: desktop
 brand: Zebra
 publishDate: 2026-07-06
+translationKey: zebra-zpl-label-printing
 ---
 
 Zebra'nın masaüstü ve endüstriyel etiket yazıcılarının büyük çoğunluğu **ZPL (Zebra Programming Language)** komut dilini kullanır. ZPL, düz metin tabanlı bir komut kümesidir — bir etiketin üzerindeki metin, barkod ve çizgilerin konumunu, boyutunu ve içeriğini komutlarla tarif edersiniz.
