@@ -4,45 +4,35 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
-const guides = (await getCollection('guides')).sort(
+const guides = (await getCollection('guides', (entry) => entry.slug.startsWith('en/'))).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 
-const classLabels: Record<string, { en: string; tr: string }> = {
-  mobile: { en: 'Mobile', tr: 'Mobil' },
-  desktop: { en: 'Desktop', tr: 'Masaüstü' },
-  industrial: { en: 'Industrial', tr: 'Endüstriyel' },
+const classLabels: Record<string, string> = {
+  mobile: 'Mobile',
+  desktop: 'Desktop',
+  industrial: 'Industrial',
 };
 ---
-<BaseLayout title="Kurulum Rehberleri — Printzen" description="Termal ve termal transfer yazıcılar için marka ve bağlantı tipine göre adım adım kurulum rehberleri.">
-  <Nav wide />
+<BaseLayout lang="en" title="Setup Guides — Printzen" description="Step-by-step setup guides for mobile, desktop, and industrial thermal printers.">
+  <Nav wide lang="en" />
 
   <main class="max-w-5xl mx-auto px-4 py-16">
-    <h1 class="text-3xl font-bold mb-2">
-      <span class="en">Setup Guides</span><span class="tr">Kurulum Rehberleri</span>
-    </h1>
-    <p class="text-gray-500 mb-10">
-      <span class="en">Step-by-step setup guides for mobile, desktop, and industrial thermal printers.</span>
-      <span class="tr">Mobil, masaüstü ve endüstriyel termal yazıcılar için adım adım kurulum rehberleri.</span>
-    </p>
+    <h1 class="text-3xl font-bold mb-2">Setup Guides</h1>
+    <p class="text-gray-500 mb-10">Step-by-step setup guides for mobile, desktop, and industrial thermal printers.</p>
 
     <div class="grid md:grid-cols-2 gap-6">
       {guides.map((guide) => (
-        <a href={`/guides/${guide.slug}`} class="block bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-200 transition">
+        <a href={`/guides/${guide.slug.replace(/^en\//, '')}`} class="block bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-200 transition">
           <span class="inline-block text-xs font-medium text-blue-600 bg-blue-50 rounded-full px-3 py-1 mb-3">
-            <span class="en">{classLabels[guide.data.printerClass].en}</span><span class="tr">{classLabels[guide.data.printerClass].tr}</span>
-            {guide.data.brand ? ` · ${guide.data.brand}` : ''}
+            {classLabels[guide.data.printerClass]}{guide.data.brand ? ` · ${guide.data.brand}` : ''}
           </span>
-          <h2 class="text-lg font-bold mb-2">
-            <span class="en">{guide.data.title.en}</span><span class="tr">{guide.data.title.tr}</span>
-          </h2>
-          <p class="text-gray-500 text-sm">
-            <span class="en">{guide.data.description.en}</span><span class="tr">{guide.data.description.tr}</span>
-          </p>
+          <h2 class="text-lg font-bold mb-2">{guide.data.title}</h2>
+          <p class="text-gray-500 text-sm">{guide.data.description}</p>
         </a>
       ))}
     </div>
   </main>
 
-  <Footer />
+  <Footer lang="en" />
 </BaseLayout>

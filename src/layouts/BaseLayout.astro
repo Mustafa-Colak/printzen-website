@@ -1,11 +1,17 @@
 ---
+import { getAlternatePath, type Locale } from '../utils/i18n';
+
 interface Props {
   title: string;
   description?: string;
-  lang?: 'en' | 'tr';
+  lang: Locale;
 }
-const { title, description, lang = 'en' } = Astro.props;
+const { title, description, lang } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const alternatePath = getAlternatePath(Astro.url.pathname, lang);
+const alternateURL = new URL(alternatePath, Astro.site);
+const enURL = lang === 'en' ? canonicalURL : alternateURL;
+const trURL = lang === 'tr' ? canonicalURL : alternateURL;
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -23,6 +29,9 @@ const organizationSchema = {
   <title>{title}</title>
   {description && <meta name="description" content={description}>}
   <link rel="canonical" href={canonicalURL}>
+  <link rel="alternate" hreflang="en" href={enURL}>
+  <link rel="alternate" hreflang="tr" href={trURL}>
+  <link rel="alternate" hreflang="x-default" href={enURL}>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate icon" href="/favicon.ico">
 
@@ -31,6 +40,7 @@ const organizationSchema = {
   <meta property="og:title" content={title}>
   {description && <meta property="og:description" content={description}>}
   <meta property="og:url" content={canonicalURL}>
+  <meta property="og:locale" content={lang === 'tr' ? 'tr_TR' : 'en_US'}>
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content={title}>
   {description && <meta name="twitter:description" content={description}>}
@@ -38,23 +48,8 @@ const organizationSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 
   <script is:inline src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <style is:global>
-    .tr { display: none; }
-    html[lang="tr"] .en { display: none; }
-    html[lang="tr"] .tr { display: revert; }
-  </style>
 </head>
 <body class="bg-gray-50 font-sans">
   <slot />
-  <script>
-    function toggleLang() {
-      const html = document.documentElement;
-      const btn = document.getElementById('langBtn');
-      if (html.lang === 'en') { html.lang = 'tr'; btn.textContent = 'EN'; }
-      else { html.lang = 'en'; btn.textContent = 'TR'; }
-    }
-    // @ts-ignore
-    window.toggleLang = toggleLang;
-  </script>
 </body>
 </html>

@@ -1,17 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
 
 const printers = (await getCollection('printers')).sort((a, b) =>
   `${a.data.brand} ${a.data.model}`.localeCompare(`${b.data.brand} ${b.data.model}`)
 );
 
 const classLabels: Record<string, string> = {
-  mobile: 'Mobile',
-  desktop: 'Desktop',
-  industrial: 'Industrial',
+  mobile: 'Mobil',
+  desktop: 'Masaüstü',
+  industrial: 'Endüstriyel',
 };
 const connectionLabels: Record<string, string> = {
   bluetooth: 'Bluetooth',
@@ -20,22 +20,22 @@ const connectionLabels: Record<string, string> = {
   ethernet: 'Ethernet',
 };
 ---
-<BaseLayout lang="en" title="Printer Compatibility Database — Printzen" description="Compatibility list for mobile, desktop, and industrial thermal printers by brand, connection type, and command language.">
-  <Nav wide lang="en" />
+<BaseLayout lang="tr" title="Yazıcı Uyumluluk Veritabanı — Printzen" description="Mobil, masaüstü ve endüstriyel termal yazıcılar için marka, bağlantı tipi ve komut diline göre uyumluluk listesi.">
+  <Nav wide lang="tr" />
 
   <main class="max-w-5xl mx-auto px-4 py-16">
-    <h1 class="text-3xl font-bold mb-2">Printer Compatibility Database</h1>
-    <p class="text-gray-500 mb-10">Thermal and thermal transfer printers — by class, connection type, and command language.</p>
+    <h1 class="text-3xl font-bold mb-2">Yazıcı Uyumluluk Veritabanı</h1>
+    <p class="text-gray-500 mb-10">Termal ve termal transfer yazıcılar — sınıf, bağlantı tipi ve komut diline göre.</p>
 
     <div class="overflow-x-auto">
       <table class="w-full text-sm border-collapse">
         <thead>
           <tr class="border-b border-gray-200 text-left text-gray-500">
-            <th class="py-3 pr-4">Brand / Model</th>
-            <th class="py-3 pr-4">Class</th>
-            <th class="py-3 pr-4">Connection</th>
-            <th class="py-3 pr-4">Command Language</th>
-            <th class="py-3 pr-4">Print Type</th>
+            <th class="py-3 pr-4">Marka / Model</th>
+            <th class="py-3 pr-4">Sınıf</th>
+            <th class="py-3 pr-4">Bağlantı</th>
+            <th class="py-3 pr-4">Komut Dili</th>
+            <th class="py-3 pr-4">Baskı Türü</th>
             <th class="py-3">Mobile Print Service</th>
           </tr>
         </thead>
@@ -46,10 +46,10 @@ const connectionLabels: Record<string, string> = {
               <td class="py-3 pr-4 text-gray-600">{classLabels[printer.data.class]}</td>
               <td class="py-3 pr-4 text-gray-600">{printer.data.connections.map((c) => connectionLabels[c]).join(', ')}</td>
               <td class="py-3 pr-4 text-gray-600">{printer.data.commandLanguage}</td>
-              <td class="py-3 pr-4 text-gray-600">{printer.data.printType === 'thermal-transfer' ? 'Thermal transfer' : 'Direct thermal'}</td>
+              <td class="py-3 pr-4 text-gray-600">{printer.data.printType === 'thermal-transfer' ? 'Termal transfer' : 'Doğrudan termal'}</td>
               <td class="py-3">
                 {printer.data.tested ? (
-                  <span class="text-green-600 font-medium">✓ Supported</span>
+                  <span class="text-green-600 font-medium">✓ Destekleniyor</span>
                 ) : (
                   <span class="text-gray-400">—</span>
                 )}
@@ -61,5 +61,5 @@ const connectionLabels: Record<string, string> = {
     </div>
   </main>
 
-  <Footer lang="en" />
+  <Footer lang="tr" />
 </BaseLayout>

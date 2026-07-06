@@ -19,8 +19,8 @@ const printers = defineCollection({
 const guides = defineCollection({
   type: 'content',
   schema: z.object({
-    title: localizedString,
-    description: localizedString,
+    title: z.string(),
+    description: z.string(),
     printerClass: z.enum(['mobile', 'desktop', 'industrial']),
     brand: z.string().optional(),
     publishDate: z.date(),

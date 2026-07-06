@@ -1,13 +1,13 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
 
 export async function getStaticPaths() {
-  const guides = await getCollection('guides', (entry) => entry.slug.startsWith('en/'));
+  const guides = await getCollection('guides', (entry) => entry.slug.startsWith('tr/'));
   return guides.map((guide) => ({
-    params: { slug: guide.slug.replace(/^en\//, '') },
+    params: { slug: guide.slug.replace(/^tr\//, '') },
     props: { guide },
   }));
 }
@@ -20,9 +20,9 @@ const { guide } = Astro.props;
 const { Content } = await guide.render();
 
 const classLabels: Record<string, string> = {
-  mobile: 'Mobile',
-  desktop: 'Desktop',
-  industrial: 'Industrial',
+  mobile: 'Mobil',
+  desktop: 'Masaüstü',
+  industrial: 'Endüstriyel',
 };
 
 const articleSchema = {
@@ -34,12 +34,12 @@ const articleSchema = {
   author: { '@type': 'Organization', name: 'Printzen' },
 };
 ---
-<BaseLayout lang="en" title={`${guide.data.title} — Printzen`} description={guide.data.description}>
+<BaseLayout lang="tr" title={`${guide.data.title} — Printzen`} description={guide.data.description}>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  <Nav lang="en" />
+  <Nav lang="tr" />
 
   <main class="max-w-3xl mx-auto px-4 py-16">
-    <a href="/guides" class="text-sm text-blue-600 hover:underline">← All guides</a>
+    <a href="/tr/guides" class="text-sm text-blue-600 hover:underline">← Tüm rehberler</a>
     <span class="inline-block text-xs font-medium text-blue-600 bg-blue-50 rounded-full px-3 py-1 mt-4 mb-3">
       {classLabels[guide.data.printerClass]}{guide.data.brand ? ` · ${guide.data.brand}` : ''}
     </span>
@@ -49,5 +49,5 @@ const articleSchema = {
     </article>
   </main>
 
-  <Footer lang="en" />
+  <Footer lang="tr" />
 </BaseLayout>

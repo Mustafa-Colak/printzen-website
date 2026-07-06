@@ -1,10 +1,19 @@
+---
+import type { Locale } from '../utils/i18n';
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const prefix = lang === 'tr' ? '/tr' : '';
+---
 <footer class="bg-gray-900 text-gray-400 py-12 mt-8">
   <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-    <a href="/" class="text-white font-bold text-xl">Printzen Apps</a>
+    <a href={lang === 'tr' ? '/tr/' : '/'} class="text-white font-bold text-xl">Printzen Apps</a>
     <div class="flex gap-6 text-sm">
-      <a href="/terms" class="hover:text-white transition"><span class="en">Terms of Service</span><span class="tr">Kullanım Şartları</span></a>
-      <a href="/privacy" class="hover:text-white transition"><span class="en">Privacy Policy</span><span class="tr">Gizlilik Politikası</span></a>
-      <a href="/refund" class="hover:text-white transition"><span class="en">Refund Policy</span><span class="tr">İade Politikası</span></a>
+      <a href={`${prefix}/terms`} class="hover:text-white transition">{lang === 'tr' ? 'Kullanım Şartları' : 'Terms of Service'}</a>
+      <a href={`${prefix}/privacy`} class="hover:text-white transition">{lang === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy'}</a>
+      <a href={`${prefix}/refund`} class="hover:text-white transition">{lang === 'tr' ? 'İade Politikası' : 'Refund Policy'}</a>
     </div>
     <div class="text-sm">© 2026 Printzen</div>
   </div>
