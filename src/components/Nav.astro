@@ -5,8 +5,12 @@ interface Props {
 const { wide = false } = Astro.props;
 ---
 <nav class="bg-white shadow-sm sticky top-0 z-10">
-  <div class={`${wide ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4 py-4 flex items-center justify-between`}>
-    <a href="/" class="text-2xl font-bold text-blue-600">Printzen Apps</a>
+  <div class={`${wide ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4 py-4 flex items-center justify-between gap-4`}>
+    <a href="/" class="text-2xl font-bold text-blue-600 shrink-0">Printzen Apps</a>
+    <div class="hidden sm:flex items-center gap-5 text-sm text-gray-600">
+      <a href="/guides" class="hover:text-blue-600 transition"><span class="en">Guides</span><span class="tr">Rehberler</span></a>
+      <a href="/printers" class="hover:text-blue-600 transition"><span class="en">Printers</span><span class="tr">Yazıcılar</span></a>
+    </div>
     <div class="flex items-center gap-4">
       <button onclick="toggleLang()" id="langBtn" class="text-sm border border-gray-300 rounded px-3 py-1 hover:bg-gray-100 transition">TR</button>
       <slot />

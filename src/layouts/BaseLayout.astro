@@ -15,7 +15,7 @@ const { title, description, lang = 'en' } = Astro.props;
   {description && <meta name="description" content={description}>}
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate icon" href="/favicon.ico">
-  <script is:inline src="https://cdn.tailwindcss.com"></script>
+  <script is:inline src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <style is:global>
     .tr { display: none; }
     html[lang="tr"] .en { display: none; }

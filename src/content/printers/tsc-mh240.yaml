@@ -1,0 +1,8 @@
+brand: TSC
+model: MH240
+class: industrial
+connections: [usb, ethernet]
+commandLanguage: TSPL
+printType: thermal-transfer
+tested: false
+notes: Endüstriyel etiket yazıcı. Mobile Print Service şu an TSPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.

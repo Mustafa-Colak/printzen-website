@@ -1,7 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const recentGuides = (await getCollection('guides'))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 ---
 <BaseLayout
   title="Printzen — Mobile Print Service for Android"
@@ -14,32 +19,61 @@ import Footer from '../components/Footer.astro';
   </Nav>
 
   <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-4 py-20 text-center">
-    <div class="inline-block bg-blue-50 text-blue-700 text-sm font-medium px-4 py-1 rounded-full mb-6">
-      <span class="en">Android Print Service</span><span class="tr">Android Yazdırma Servisi</span>
+  <section class="max-w-5xl mx-auto px-4 py-20">
+    <div class="grid md:grid-cols-5 gap-12 items-center">
+      <div class="md:col-span-3">
+        <div class="inline-block bg-blue-50 text-blue-700 text-sm font-medium px-4 py-1 rounded-full mb-6">
+          <span class="en">Android Print Service</span><span class="tr">Android Yazdırma Servisi</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <span class="en">Print from any Android app<br>to any thermal printer</span>
+          <span class="tr">Her Android uygulamasından<br>her termal yazıcıya yazdır</span>
+        </h1>
+        <p class="text-xl text-gray-500 mb-10">
+          <span class="en">Mobile Print Service connects your Android device to receipt and label printers via Bluetooth, Wi-Fi, or USB — through the system print dialog.</span>
+          <span class="tr">Mobile Print Service, Android cihazınızı sistem yazdırma dialogu üzerinden fiş ve etiket yazıcılara Bluetooth, Wi-Fi veya USB ile bağlar.</span>
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://play.google.com/store/apps/details?id=com.mobileprint.service" target="_blank" rel="noopener"
+             class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition inline-flex items-center gap-2 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1.01-1.3 1.66-.78l15 8.5a1 1 0 010 1.56l-15 8.5C4.01 21.8 3 21.33 3 20.5z"/></svg>
+            <span class="en">Get on Google Play</span><span class="tr">Google Play'den İndir</span>
+          </a>
+          <a href="#pricing" class="bg-white text-blue-600 border border-blue-200 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition inline-block shadow">
+            <span class="en">View Pricing →</span><span class="tr">Fiyatları Gör →</span>
+          </a>
+        </div>
+        <p class="text-sm text-gray-400 mt-4">
+          <span class="en">30-day free trial · No credit card required</span>
+          <span class="tr">30 günlük ücretsiz deneme · Kredi kartı gerekmez</span>
+        </p>
+      </div>
+
+      <div class="md:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-bold text-gray-900">
+            <span class="en">Recent guides</span><span class="tr">Son rehberler</span>
+          </h2>
+          <a href="/guides" class="text-sm text-blue-600 hover:underline shrink-0">
+            <span class="en">View all →</span><span class="tr">Tümünü gör →</span>
+          </a>
+        </div>
+        <div class="divide-y divide-gray-100">
+          {recentGuides.map((guide) => (
+            <a href={`/guides/${guide.slug}`} class="flex items-center gap-3 py-3 group">
+              <div class="text-blue-600 shrink-0">📄</div>
+              <div>
+                <p class="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">{guide.data.title}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+        <a href="/printers" class="block mt-4 pt-4 border-t border-gray-100 text-sm text-blue-600 hover:underline">
+          <span class="en">Browse the printer compatibility database →</span>
+          <span class="tr">Yazıcı uyumluluk veritabanına göz atın →</span>
+        </a>
+      </div>
     </div>
-    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-      <span class="en">Print from any Android app<br>to any thermal printer</span>
-      <span class="tr">Her Android uygulamasından<br>her termal yazıcıya yazdır</span>
-    </h1>
-    <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">
-      <span class="en">Mobile Print Service connects your Android device to receipt and label printers via Bluetooth, Wi-Fi, or USB — through the system print dialog.</span>
-      <span class="tr">Mobile Print Service, Android cihazınızı sistem yazdırma dialogu üzerinden fiş ve etiket yazıcılara Bluetooth, Wi-Fi veya USB ile bağlar.</span>
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="https://play.google.com/store/apps/details?id=com.mobileprint.service" target="_blank" rel="noopener"
-         class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition inline-flex items-center gap-2 shadow-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83 1.01-1.3 1.66-.78l15 8.5a1 1 0 010 1.56l-15 8.5C4.01 21.8 3 21.33 3 20.5z"/></svg>
-        <span class="en">Get on Google Play</span><span class="tr">Google Play'den İndir</span>
-      </a>
-      <a href="#pricing" class="bg-white text-blue-600 border border-blue-200 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-50 transition inline-block shadow">
-        <span class="en">View Pricing →</span><span class="tr">Fiyatları Gör →</span>
-      </a>
-    </div>
-    <p class="text-sm text-gray-400 mt-4">
-      <span class="en">30-day free trial · No credit card required</span>
-      <span class="tr">30 günlük ücretsiz deneme · Kredi kartı gerekmez</span>
-    </p>
   </section>
 
   <!-- Features -->

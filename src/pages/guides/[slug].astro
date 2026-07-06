@@ -1,0 +1,43 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide },
+  }));
+}
+
+interface Props {
+  guide: CollectionEntry<'guides'>;
+}
+
+const { guide } = Astro.props;
+const { Content } = await guide.render();
+
+const classLabels: Record<string, string> = {
+  mobile: 'Mobil',
+  desktop: 'Masaüstü',
+  industrial: 'Endüstriyel',
+};
+---
+<BaseLayout title={`${guide.data.title} — Printzen`} description={guide.data.description}>
+  <Nav />
+
+  <main class="max-w-3xl mx-auto px-4 py-16">
+    <a href="/guides" class="text-sm text-blue-600 hover:underline">← Tüm rehberler</a>
+    <span class="inline-block text-xs font-medium text-blue-600 bg-blue-50 rounded-full px-3 py-1 mt-4 mb-3">
+      {classLabels[guide.data.printerClass]}{guide.data.brand ? ` · ${guide.data.brand}` : ''}
+    </span>
+    <h1 class="text-3xl font-bold mb-6">{guide.data.title}</h1>
+    <article class="prose max-w-none prose-headings:font-bold prose-a:text-blue-600">
+      <Content />
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,8 @@
+brand: Seiko Instruments
+model: MP-B30L
+class: mobile
+connections: [bluetooth, wifi]
+commandLanguage: SII SDK
+printType: thermal-direct
+tested: true
+notes: Hem fiş hem etiket modunu destekler. Mobile Print Service üzerinden Bluetooth ve Wi-Fi ile doğrudan destekleniyor.

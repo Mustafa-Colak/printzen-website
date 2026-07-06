@@ -1,0 +1,8 @@
+brand: Zebra
+model: ZD220
+class: desktop
+connections: [usb]
+commandLanguage: ZPL
+printType: thermal-direct
+tested: false
+notes: Masaüstü etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.

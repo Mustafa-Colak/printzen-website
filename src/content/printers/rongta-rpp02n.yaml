@@ -1,0 +1,8 @@
+brand: Rongta
+model: RPP02N
+class: mobile
+connections: [bluetooth, usb]
+commandLanguage: ESC/POS
+printType: thermal-direct
+tested: true
+notes: Mobile Print Service üzerinden Bluetooth ile doğrudan destekleniyor (RongtaDriver).

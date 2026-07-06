@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const guides = (await getCollection('guides')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const classLabels: Record<string, string> = {
+  mobile: 'Mobil',
+  desktop: 'Masaüstü',
+  industrial: 'Endüstriyel',
+};
+---
+<BaseLayout title="Kurulum Rehberleri — Printzen" description="Termal ve termal transfer yazıcılar için marka ve bağlantı tipine göre adım adım kurulum rehberleri.">
+  <Nav wide />
+
+  <main class="max-w-5xl mx-auto px-4 py-16">
+    <h1 class="text-3xl font-bold mb-2">Kurulum Rehberleri</h1>
+    <p class="text-gray-500 mb-10">Mobil, masaüstü ve endüstriyel termal yazıcılar için adım adım kurulum rehberleri.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {guides.map((guide) => (
+        <a href={`/guides/${guide.slug}`} class="block bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-200 transition">
+          <span class="inline-block text-xs font-medium text-blue-600 bg-blue-50 rounded-full px-3 py-1 mb-3">
+            {classLabels[guide.data.printerClass]}{guide.data.brand ? ` · ${guide.data.brand}` : ''}
+          </span>
+          <h2 class="text-lg font-bold mb-2">{guide.data.title}</h2>
+          <p class="text-gray-500 text-sm">{guide.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,8 @@
+brand: Zebra
+model: GK420t
+class: desktop
+connections: [usb, ethernet]
+commandLanguage: ZPL
+printType: thermal-transfer
+tested: false
+notes: Ribbon (termal transfer) destekli masaüstü etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.
