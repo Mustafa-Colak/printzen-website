@@ -5,4 +5,6 @@ connections: [usb, ethernet]
 commandLanguage: ZPL
 printType: thermal-transfer
 tested: false
-notes: Yüksek hacimli endüstriyel etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.
+notes:
+  en: High-volume industrial label printer. Mobile Print Service does not support the ZPL command language yet — listed for reference.
+  tr: Yüksek hacimli endüstriyel etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.

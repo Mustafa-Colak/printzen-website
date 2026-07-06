@@ -1,5 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 
+const localizedString = z.object({ en: z.string(), tr: z.string() });
+
 const printers = defineCollection({
   type: 'data',
   schema: z.object({
@@ -10,15 +12,15 @@ const printers = defineCollection({
     commandLanguage: z.enum(['ESC/POS', 'ZPL', 'TSPL', 'EPL', 'CPCL', 'SII SDK']),
     printType: z.enum(['thermal-direct', 'thermal-transfer']),
     tested: z.boolean(),
-    notes: z.string().optional(),
+    notes: localizedString.optional(),
   }),
 });
 
 const guides = defineCollection({
   type: 'content',
   schema: z.object({
-    title: z.string(),
-    description: z.string(),
+    title: localizedString,
+    description: localizedString,
     printerClass: z.enum(['mobile', 'desktop', 'industrial']),
     brand: z.string().optional(),
     publishDate: z.date(),

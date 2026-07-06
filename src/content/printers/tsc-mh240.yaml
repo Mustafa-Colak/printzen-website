@@ -5,4 +5,6 @@ connections: [usb, ethernet]
 commandLanguage: TSPL
 printType: thermal-transfer
 tested: false
-notes: Endüstriyel etiket yazıcı. Mobile Print Service şu an TSPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.
+notes:
+  en: Industrial label printer. Mobile Print Service does not support the TSPL command language yet — listed for reference.
+  tr: Endüstriyel etiket yazıcı. Mobile Print Service şu an TSPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.

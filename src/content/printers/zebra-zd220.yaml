@@ -5,4 +5,6 @@ connections: [usb]
 commandLanguage: ZPL
 printType: thermal-direct
 tested: false
-notes: Masaüstü etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.
+notes:
+  en: Desktop label printer. Mobile Print Service does not support the ZPL command language yet — listed for reference.
+  tr: Masaüstü etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.

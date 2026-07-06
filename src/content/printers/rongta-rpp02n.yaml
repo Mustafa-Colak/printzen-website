@@ -5,4 +5,6 @@ connections: [bluetooth, usb]
 commandLanguage: ESC/POS
 printType: thermal-direct
 tested: true
-notes: Mobile Print Service üzerinden Bluetooth ile doğrudan destekleniyor (RongtaDriver).
+notes:
+  en: Directly supported over Bluetooth via Mobile Print Service (RongtaDriver).
+  tr: Mobile Print Service üzerinden Bluetooth ile doğrudan destekleniyor (RongtaDriver).

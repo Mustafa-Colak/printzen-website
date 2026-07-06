@@ -5,4 +5,6 @@ connections: [bluetooth, wifi]
 commandLanguage: SII SDK
 printType: thermal-direct
 tested: true
-notes: Hem fiş hem etiket modunu destekler. Mobile Print Service üzerinden Bluetooth ve Wi-Fi ile doğrudan destekleniyor.
+notes:
+  en: Supports both receipt and label modes. Directly supported over Bluetooth and Wi-Fi via Mobile Print Service.
+  tr: Hem fiş hem etiket modunu destekler. Mobile Print Service üzerinden Bluetooth ve Wi-Fi ile doğrudan destekleniyor.

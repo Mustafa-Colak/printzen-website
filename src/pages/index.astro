@@ -63,7 +63,9 @@ const recentGuides = (await getCollection('guides'))
             <a href={`/guides/${guide.slug}`} class="flex items-center gap-3 py-3 group">
               <div class="text-blue-600 shrink-0">📄</div>
               <div>
-                <p class="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">{guide.data.title}</p>
+                <p class="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">
+                  <span class="en">{guide.data.title.en}</span><span class="tr">{guide.data.title.tr}</span>
+                </p>
               </div>
             </a>
           ))}

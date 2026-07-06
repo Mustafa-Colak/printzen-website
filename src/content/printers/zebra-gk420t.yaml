@@ -5,4 +5,6 @@ connections: [usb, ethernet]
 commandLanguage: ZPL
 printType: thermal-transfer
 tested: false
-notes: Ribbon (termal transfer) destekli masaüstü etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.
+notes:
+  en: Desktop label printer with ribbon (thermal transfer) support. Mobile Print Service does not support the ZPL command language yet — listed for reference.
+  tr: Ribbon (termal transfer) destekli masaüstü etiket yazıcı. Mobile Print Service şu an ZPL komut dilini desteklemiyor — bilgi amaçlı listelenmiştir.

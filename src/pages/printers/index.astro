@@ -8,34 +8,39 @@ const printers = (await getCollection('printers')).sort((a, b) =>
   `${a.data.brand} ${a.data.model}`.localeCompare(`${b.data.brand} ${b.data.model}`)
 );
 
-const classLabels: Record<string, string> = {
-  mobile: 'Mobil',
-  desktop: 'Masaüstü',
-  industrial: 'Endüstriyel',
+const classLabels: Record<string, { en: string; tr: string }> = {
+  mobile: { en: 'Mobile', tr: 'Mobil' },
+  desktop: { en: 'Desktop', tr: 'Masaüstü' },
+  industrial: { en: 'Industrial', tr: 'Endüstriyel' },
 };
-const connectionLabels: Record<string, string> = {
-  bluetooth: 'Bluetooth',
-  wifi: 'Wi-Fi',
-  usb: 'USB',
-  ethernet: 'Ethernet',
+const connectionLabels: Record<string, { en: string; tr: string }> = {
+  bluetooth: { en: 'Bluetooth', tr: 'Bluetooth' },
+  wifi: { en: 'Wi-Fi', tr: 'Wi-Fi' },
+  usb: { en: 'USB', tr: 'USB' },
+  ethernet: { en: 'Ethernet', tr: 'Ethernet' },
 };
 ---
 <BaseLayout title="Yazıcı Uyumluluk Veritabanı — Printzen" description="Mobil, masaüstü ve endüstriyel termal yazıcılar için marka, bağlantı tipi ve komut diline göre uyumluluk listesi.">
   <Nav wide />
 
   <main class="max-w-5xl mx-auto px-4 py-16">
-    <h1 class="text-3xl font-bold mb-2">Yazıcı Uyumluluk Veritabanı</h1>
-    <p class="text-gray-500 mb-10">Termal ve termal transfer yazıcılar — sınıf, bağlantı tipi ve komut diline göre.</p>
+    <h1 class="text-3xl font-bold mb-2">
+      <span class="en">Printer Compatibility Database</span><span class="tr">Yazıcı Uyumluluk Veritabanı</span>
+    </h1>
+    <p class="text-gray-500 mb-10">
+      <span class="en">Thermal and thermal transfer printers — by class, connection type, and command language.</span>
+      <span class="tr">Termal ve termal transfer yazıcılar — sınıf, bağlantı tipi ve komut diline göre.</span>
+    </p>
 
     <div class="overflow-x-auto">
       <table class="w-full text-sm border-collapse">
         <thead>
           <tr class="border-b border-gray-200 text-left text-gray-500">
-            <th class="py-3 pr-4">Marka / Model</th>
-            <th class="py-3 pr-4">Sınıf</th>
-            <th class="py-3 pr-4">Bağlantı</th>
-            <th class="py-3 pr-4">Komut Dili</th>
-            <th class="py-3 pr-4">Baskı Türü</th>
+            <th class="py-3 pr-4"><span class="en">Brand / Model</span><span class="tr">Marka / Model</span></th>
+            <th class="py-3 pr-4"><span class="en">Class</span><span class="tr">Sınıf</span></th>
+            <th class="py-3 pr-4"><span class="en">Connection</span><span class="tr">Bağlantı</span></th>
+            <th class="py-3 pr-4"><span class="en">Command Language</span><span class="tr">Komut Dili</span></th>
+            <th class="py-3 pr-4"><span class="en">Print Type</span><span class="tr">Baskı Türü</span></th>
             <th class="py-3">Mobile Print Service</th>
           </tr>
         </thead>
@@ -43,13 +48,23 @@ const connectionLabels: Record<string, string> = {
           {printers.map((printer) => (
             <tr class="border-b border-gray-100">
               <td class="py-3 pr-4 font-medium text-gray-900">{printer.data.brand} {printer.data.model}</td>
-              <td class="py-3 pr-4 text-gray-600">{classLabels[printer.data.class]}</td>
-              <td class="py-3 pr-4 text-gray-600">{printer.data.connections.map((c) => connectionLabels[c]).join(', ')}</td>
+              <td class="py-3 pr-4 text-gray-600">
+                <span class="en">{classLabels[printer.data.class].en}</span><span class="tr">{classLabels[printer.data.class].tr}</span>
+              </td>
+              <td class="py-3 pr-4 text-gray-600">
+                <span class="en">{printer.data.connections.map((c) => connectionLabels[c].en).join(', ')}</span>
+                <span class="tr">{printer.data.connections.map((c) => connectionLabels[c].tr).join(', ')}</span>
+              </td>
               <td class="py-3 pr-4 text-gray-600">{printer.data.commandLanguage}</td>
-              <td class="py-3 pr-4 text-gray-600">{printer.data.printType === 'thermal-transfer' ? 'Termal transfer' : 'Doğrudan termal'}</td>
+              <td class="py-3 pr-4 text-gray-600">
+                <span class="en">{printer.data.printType === 'thermal-transfer' ? 'Thermal transfer' : 'Direct thermal'}</span>
+                <span class="tr">{printer.data.printType === 'thermal-transfer' ? 'Termal transfer' : 'Doğrudan termal'}</span>
+              </td>
               <td class="py-3">
                 {printer.data.tested ? (
-                  <span class="text-green-600 font-medium">✓ Destekleniyor</span>
+                  <span class="text-green-600 font-medium">
+                    <span class="en">✓ Supported</span><span class="tr">✓ Destekleniyor</span>
+                  </span>
                 ) : (
                   <span class="text-gray-400">—</span>
                 )}

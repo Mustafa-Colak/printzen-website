@@ -19,21 +19,26 @@ interface Props {
 const { guide } = Astro.props;
 const { Content } = await guide.render();
 
-const classLabels: Record<string, string> = {
-  mobile: 'Mobil',
-  desktop: 'Masaüstü',
-  industrial: 'Endüstriyel',
+const classLabels: Record<string, { en: string; tr: string }> = {
+  mobile: { en: 'Mobile', tr: 'Mobil' },
+  desktop: { en: 'Desktop', tr: 'Masaüstü' },
+  industrial: { en: 'Industrial', tr: 'Endüstriyel' },
 };
 ---
-<BaseLayout title={`${guide.data.title} — Printzen`} description={guide.data.description}>
+<BaseLayout title={`${guide.data.title.tr} — Printzen`} description={guide.data.description.tr}>
   <Nav />
 
   <main class="max-w-3xl mx-auto px-4 py-16">
-    <a href="/guides" class="text-sm text-blue-600 hover:underline">← Tüm rehberler</a>
+    <a href="/guides" class="text-sm text-blue-600 hover:underline">
+      <span class="en">← All guides</span><span class="tr">← Tüm rehberler</span>
+    </a>
     <span class="inline-block text-xs font-medium text-blue-600 bg-blue-50 rounded-full px-3 py-1 mt-4 mb-3">
-      {classLabels[guide.data.printerClass]}{guide.data.brand ? ` · ${guide.data.brand}` : ''}
+      <span class="en">{classLabels[guide.data.printerClass].en}</span><span class="tr">{classLabels[guide.data.printerClass].tr}</span>
+      {guide.data.brand ? ` · ${guide.data.brand}` : ''}
     </span>
-    <h1 class="text-3xl font-bold mb-6">{guide.data.title}</h1>
+    <h1 class="text-3xl font-bold mb-6">
+      <span class="en">{guide.data.title.en}</span><span class="tr">{guide.data.title.tr}</span>
+    </h1>
     <article class="prose max-w-none prose-headings:font-bold prose-a:text-blue-600">
       <Content />
     </article>
