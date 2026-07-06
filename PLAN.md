@@ -61,16 +61,21 @@ Sınıflar arası + marka/model karşılaştırma tablosu.
 
 ## Sosyal Medya Bağlantıları
 
-Printzen.app için tüm hesaplar yeni açılacak. Header/footer'a linkler eklenecek.
+Printzen.app için hesaplar açılıyor. Header/footer'a linkler eklenecek.
 
-- LinkedIn (B2B/kurumsal içerik)
-- YouTube (kurulum videoları / demo içerik)
-- X / Twitter
-- Instagram
+- **YouTube:** [@PrintzenApps](https://www.youtube.com/@PrintzenApps) — kanal açıldı,
+  henüz video/açıklama yok
+- LinkedIn (B2B/kurumsal içerik) — TODO
+- X / Twitter — TODO
+- Instagram — TODO
 
-**TODO: hesaplar açıldıkça kullanıcı adları buraya eklenecek.**
+## Durum (2026-07-06)
 
-## Sıradaki Adım
-
-Site haritası (sayfa listesi + URL yapısı) çıkarılacak, ardından Astro migrasyonuna
-başlanacak.
+- [x] Astro migrasyonu tamamlandı, canlıya alındı
+- [x] Content Collections (`printers`, `guides`) kuruldu
+- [x] Gerçek i18n routing (ayrı `/en` (önek yok) / `/tr` URL'ler, `hreflang`,
+  çevrilmiş URL segmentleri — `guides`→`rehberler`, `printers`→`yazicilar`)
+- [x] Temel teknik SEO (sitemap, robots.txt, OG/Twitter, JSON-LD)
+- [ ] Rehberlere görsel/video eklenmesi (YouTube embed ile — kanal hazır)
+- [ ] Kalan portal bölümleri (Etiket Bilgi Bankası, Kullanım Senaryoları, Sorun
+  Giderme, Terimler Sözlüğü, Karşılaştırma Aracı) — henüz başlanmadı
