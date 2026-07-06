@@ -5,6 +5,15 @@ interface Props {
   lang?: 'en' | 'tr';
 }
 const { title, description, lang = 'en' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Printzen',
+  url: 'https://printzen.app',
+  logo: 'https://printzen.app/favicon.svg',
+};
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -13,8 +22,21 @@ const { title, description, lang = 'en' } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   {description && <meta name="description" content={description}>}
+  <link rel="canonical" href={canonicalURL}>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate icon" href="/favicon.ico">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Printzen">
+  <meta property="og:title" content={title}>
+  {description && <meta property="og:description" content={description}>}
+  <meta property="og:url" content={canonicalURL}>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content={title}>
+  {description && <meta name="twitter:description" content={description}>}
+
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
   <script is:inline src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <style is:global>
     .tr { display: none; }

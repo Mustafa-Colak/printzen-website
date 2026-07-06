@@ -24,8 +24,18 @@ const classLabels: Record<string, { en: string; tr: string }> = {
   desktop: { en: 'Desktop', tr: 'Masaüstü' },
   industrial: { en: 'Industrial', tr: 'Endüstriyel' },
 };
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: guide.data.title.tr,
+  description: guide.data.description.tr,
+  datePublished: guide.data.publishDate.toISOString(),
+  author: { '@type': 'Organization', name: 'Printzen' },
+};
 ---
 <BaseLayout title={`${guide.data.title.tr} — Printzen`} description={guide.data.description.tr}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <Nav />
 
   <main class="max-w-3xl mx-auto px-4 py-16">
