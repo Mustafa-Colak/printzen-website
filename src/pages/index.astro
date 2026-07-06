@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Printzen — Mobile Print Service for Android</title>
-  <meta name="description" content="Print from any Android app to any thermal printer. Bluetooth, Wi-Fi, USB support.">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="alternate icon" href="/favicon.ico">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .tr { display: none; }
-    html[lang="tr"] .en { display: none; }
-    html[lang="tr"] .tr { display: revert; }
-  </style>
-</head>
-<body class="bg-gray-50 font-sans">
-
-  <!-- Nav -->
-  <nav class="bg-white shadow-sm sticky top-0 z-10">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-blue-600">Printzen Apps</a>
-      <div class="flex items-center gap-4">
-        <button onclick="toggleLang()" id="langBtn" class="text-sm border border-gray-300 rounded px-3 py-1 hover:bg-gray-100 transition">TR</button>
-        <a href="https://play.google.com/store/apps/details?id=com.mobileprint.service" target="_blank" rel="noopener" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
-          <span class="en">Get on Play Store</span><span class="tr">Play Store'dan Al</span>
-        </a>
-      </div>
-    </div>
-  </nav>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout
+  title="Printzen — Mobile Print Service for Android"
+  description="Print from any Android app to any thermal printer. Bluetooth, Wi-Fi, USB support."
+>
+  <Nav wide>
+    <a href="https://play.google.com/store/apps/details?id=com.mobileprint.service" target="_blank" rel="noopener" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+      <span class="en">Get on Play Store</span><span class="tr">Play Store'dan Al</span>
+    </a>
+  </Nav>
 
   <!-- Hero -->
   <section class="max-w-5xl mx-auto px-4 py-20 text-center">
@@ -171,31 +155,5 @@
     </p>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-12 mt-8">
-    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-      <a href="/" class="text-white font-bold text-xl">Printzen Apps</a>
-      <div class="flex gap-6 text-sm">
-        <a href="/terms.html" class="hover:text-white transition"><span class="en">Terms of Service</span><span class="tr">Kullanım Şartları</span></a>
-        <a href="/privacy.html" class="hover:text-white transition"><span class="en">Privacy Policy</span><span class="tr">Gizlilik Politikası</span></a>
-        <a href="/refund.html" class="hover:text-white transition"><span class="en">Refund Policy</span><span class="tr">İade Politikası</span></a>
-      </div>
-      <div class="text-sm">© 2026 Printzen</div>
-    </div>
-  </footer>
-
-  <script>
-    function toggleLang() {
-      const html = document.documentElement;
-      const btn = document.getElementById('langBtn');
-      if (html.lang === 'en') {
-        html.lang = 'tr';
-        btn.textContent = 'EN';
-      } else {
-        html.lang = 'en';
-        btn.textContent = 'TR';
-      }
-    }
-  </script>
-</body>
-</html>
+  <Footer />
+</BaseLayout>

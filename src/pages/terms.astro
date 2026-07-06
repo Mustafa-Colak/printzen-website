@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service — Printzen</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .tr { display: none; }
-    html[lang="tr"] .en { display: none; }
-    html[lang="tr"] .tr { display: revert; }
-  </style>
-</head>
-<body class="bg-gray-50 font-sans">
-
-  <nav class="bg-white shadow-sm sticky top-0 z-10">
-    <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold text-blue-600">Printzen Apps</a>
-      <button onclick="toggleLang()" id="langBtn" class="text-sm border border-gray-300 rounded px-3 py-1 hover:bg-gray-100 transition">TR</button>
-    </div>
-  </nav>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<BaseLayout title="Terms of Service — Printzen">
+  <Nav />
 
   <main class="max-w-3xl mx-auto px-4 py-16">
 
@@ -112,25 +98,5 @@
 
   </main>
 
-  <footer class="bg-gray-900 text-gray-400 py-12 mt-8">
-    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-      <a href="/" class="text-white font-bold text-xl">Printzen Apps</a>
-      <div class="flex gap-6 text-sm">
-        <a href="/terms.html" class="hover:text-white transition"><span class="en">Terms of Service</span><span class="tr">Kullanım Şartları</span></a>
-        <a href="/privacy.html" class="hover:text-white transition"><span class="en">Privacy Policy</span><span class="tr">Gizlilik Politikası</span></a>
-        <a href="/refund.html" class="hover:text-white transition"><span class="en">Refund Policy</span><span class="tr">İade Politikası</span></a>
-      </div>
-      <div class="text-sm">© 2026 Printzen</div>
-    </div>
-  </footer>
-
-  <script>
-    function toggleLang() {
-      const html = document.documentElement;
-      const btn = document.getElementById('langBtn');
-      if (html.lang === 'en') { html.lang = 'tr'; btn.textContent = 'EN'; }
-      else { html.lang = 'en'; btn.textContent = 'TR'; }
-    }
-  </script>
-</body>
-</html>
+  <Footer />
+</BaseLayout>

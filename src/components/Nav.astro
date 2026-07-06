@@ -1,0 +1,15 @@
+---
+interface Props {
+  wide?: boolean;
+}
+const { wide = false } = Astro.props;
+---
+<nav class="bg-white shadow-sm sticky top-0 z-10">
+  <div class={`${wide ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4 py-4 flex items-center justify-between`}>
+    <a href="/" class="text-2xl font-bold text-blue-600">Printzen Apps</a>
+    <div class="flex items-center gap-4">
+      <button onclick="toggleLang()" id="langBtn" class="text-sm border border-gray-300 rounded px-3 py-1 hover:bg-gray-100 transition">TR</button>
+      <slot />
+    </div>
+  </div>
+</nav>
