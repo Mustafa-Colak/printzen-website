@@ -3,6 +3,14 @@
 Mobile Print Service Android uygulamasının tanıtım sitesi + termal/termal
 transfer yazdırma konularında içerik portalı.
 
+> **İlişkili proje:** `c:\edev\mobile-print-service-android` (aynı workspace,
+> ayrı repo) — bu sitenin tanıttığı Android uygulaması. Fiyatlandırma, plan
+> isimleri, Play Store linki, paket adı, gizlilik/iade politikası metinleri
+> gibi konularda **bu iki repo birbirini etkiler** — bu sitede pricing/legal
+> içerik değiştirirken uygulama tarafında (`ProManager`, `PlayBillingManager`)
+> gerçek plan/fiyat bilgisiyle tutarlı olduğunu kontrol et, tam tersi de
+> geçerli.
+
 ## Teknoloji
 
 - **[Astro](https://astro.build)** (statik site üretici, sıfır varsayılan JS)
