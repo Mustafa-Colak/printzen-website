@@ -16,6 +16,7 @@
     <style>
         :root {
             --bg-color: #0b0f19;
+            --bg-surface: #131a2b;
             --text-main: #ffffff;
             --text-muted: #8b949e;
             --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #a855f7 100%);
@@ -23,11 +24,7 @@
             --glass-border: rgba(255, 255, 255, 0.08);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -49,7 +46,7 @@
             z-index: -1;
         }
         .glow-top-left { top: -200px; left: -200px; }
-        .glow-bottom-right { bottom: -200px; right: -200px; }
+        .glow-bottom-right { bottom: 20%; right: -200px; }
 
         /* Navigation */
         nav {
@@ -62,170 +59,88 @@
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;
+            display: flex; align-items: center; gap: 10px;
         }
 
-        .logo img {
-            width: 32px;
-            height: 32px;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--text-main); }
 
         /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 8rem 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
+        .hero { text-align: center; padding: 6rem 20px 4rem; max-width: 900px; margin: 0 auto; }
         .pill {
-            display: inline-block;
-            background: rgba(168, 85, 247, 0.1);
-            color: #d8b4fe;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(168, 85, 247, 0.2);
+            display: inline-block; background: rgba(168, 85, 247, 0.1); color: #d8b4fe;
+            padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 2rem; border: 1px solid rgba(168, 85, 247, 0.2);
         }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-inline: auto;
-        }
+        .hero h1 { font-size: 4.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 1.5rem; }
+        .hero h1 span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 3rem; max-width: 700px; margin-inline: auto; }
 
         /* Button */
         .btn-primary {
-            display: inline-block;
-            background: var(--accent-gradient);
-            color: white;
-            text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
-            border: none;
+            display: inline-block; background: var(--accent-gradient); color: white;
+            text-decoration: none; padding: 18px 40px; border-radius: 8px; font-size: 1.1rem;
+            font-weight: 600; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer; border: none;
         }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4); }
+        .price-note { display: block; margin-top: 15px; font-size: 0.9rem; color: var(--text-muted); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
-        }
-
-        .price-note {
-            display: block;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
+        /* Sections */
+        section.content-section { padding: 5rem 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; }
 
         /* Features Glass Grid */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 8rem auto;
-            padding: 0 20px;
-        }
-
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .feature-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 2.5rem; backdrop-filter: blur(10px); transition: transform 0.3s ease;
         }
+        .feature-card:hover { transform: translateY(-5px); border-color: rgba(168, 85, 247, 0.3); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; font-weight: 600; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(168, 85, 247, 0.3);
+        /* How it Works */
+        .steps { display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto; }
+        .step { display: flex; gap: 1.5rem; background: var(--bg-surface); padding: 2rem; border-radius: 12px; border: 1px solid var(--glass-border); }
+        .step-num { 
+            background: var(--accent-gradient); color: white; font-weight: bold; font-size: 1.5rem;
+            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0;
         }
+        .step-content h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .step-content p { color: var(--text-muted); }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
+        /* FAQ */
+        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .faq-item h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #e2e8f0; }
+        .faq-item p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        /* CTA Footer */
+        .cta-bottom { text-align: center; padding: 6rem 20px; background: var(--bg-surface); border-top: 1px solid var(--glass-border); margin-top: 4rem; }
+        .trust-badges { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem; align-items: center;}
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.1rem; }
+            .step { flex-direction: column; }
+            .trust-badges { flex-direction: column; gap: 1rem; }
         }
 
         /* Loading Overlay */
         .loader-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: var(--bg-color);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--bg-color); z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
             transition: opacity 0.3s ease;
         }
         .loader-spinner {
-            width: 50px; height: 50px;
-            border: 4px solid rgba(168, 85, 247, 0.2);
-            border-top-color: #a855f7;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+            width: 50px; height: 50px; border: 4px solid rgba(168, 85, 247, 0.2);
+            border-top-color: #a855f7; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
-        .loader-text {
-            font-size: 1.25rem; font-weight: 600;
-            color: var(--text-main);
-        }
+        .loader-text { font-size: 1.25rem; font-weight: 600; color: var(--text-main); }
     </style>
 </head>
 <body>
@@ -241,21 +156,19 @@
 
     <nav>
         <div class="logo">
-            <!-- You can replace with your own logo SVG -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#paint0_linear)"/>
                 <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <defs>
                     <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#4F46E5"/>
-                        <stop offset="1" stop-color="#A855F7"/>
+                        <stop stop-color="#4F46E5"/><stop offset="1" stop-color="#A855F7"/>
                     </linearGradient>
                 </defs>
             </svg>
             Printzen
         </div>
         <div class="nav-links">
-            <a href="#pricing">Pricing</a>
+            <a href="#" onclick="openPaddleCheckout(event)">Get PRO</a>
         </div>
     </nav>
 
@@ -264,28 +177,94 @@
         <h1>Unify Your <br><span>WooCommerce Empire</span></h1>
         <p>Seamlessly synchronize products, stock, and pricing across unlimited WordPress stores. Build a centralized network powered by lightning-fast APIs.</p>
         
-        <!-- Paddle Button -->
         <a href="#!" class="btn-primary" onclick="openPaddleCheckout(event)">
             Get PRO License - $99
         </a>
         <span class="price-note">One-time payment. Lifetime updates.</span>
     </section>
 
-    <section class="features">
-        <div class="feature-card">
-            <div class="feature-icon">⚡️</div>
-            <h3>Real-Time Synchronization</h3>
-            <p>Any product updated on your primary store is instantly pushed to your secondary stores. Never worry about out-of-sync inventory again.</p>
+    <!-- Features -->
+    <section class="content-section">
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⚡️</div>
+                <h3>Real-Time Synchronization</h3>
+                <p>Any product updated on your primary store is instantly pushed to your secondary stores. Never worry about out-of-sync inventory again.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Universal API Import</h3>
+                <p>Import thousands of products from ANY supplier using our advanced XML and JSON importer. Easily map fields and map custom tax rates.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Bulk Price Engine</h3>
+                <p>Apply flat percentage markups to hundreds of products at once. Instantly sync your updated profit margins across your entire network.</p>
+            </div>
         </div>
-        <div class="feature-card">
-            <div class="feature-icon">🌐</div>
-            <h3>Universal API Import</h3>
-            <p>Import thousands of products from ANY supplier using our advanced XML and JSON importer. Easily map fields and map custom tax rates.</p>
+    </section>
+
+    <!-- How It Works -->
+    <section class="content-section">
+        <h2 class="section-title">How it works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Install on your WordPress Network</h3>
+                    <p>Upload and activate the Woo Multi-Sync plugin on your primary (main) store and any secondary (child) stores you want to connect.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Connect the APIs</h3>
+                    <p>Generate your secure WooCommerce API keys and paste them into the plugin settings. No complex coding required.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Automate Everything</h3>
+                    <p>Watch as product titles, descriptions, prices, and stock levels are instantly replicated across your entire e-commerce empire.</p>
+                </div>
+            </div>
         </div>
-        <div class="feature-card">
-            <div class="feature-icon">📈</div>
-            <h3>Bulk Price Engine</h3>
-            <p>Apply flat percentage markups to hundreds of products at once. Instantly sync your updated profit margins across your entire network.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Is this a recurring subscription?</h4>
+                <p>No, this is a one-time payment for a Lifetime License. You get all future updates and features forever without paying again.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How many secondary stores can I connect?</h4>
+                <p>There is absolutely no limit. You can push products from one primary store to as many secondary WooCommerce stores as your server can handle.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does it support custom metadata?</h4>
+                <p>Yes, the plugin seamlessly maps standard WooCommerce fields as well as variable products, XML/JSON custom endpoints, and custom tax classes.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What if I need a refund?</h4>
+                <p>We offer a strict 30-day money-back guarantee. If the plugin doesn't fit your workflow, just contact our support for a full refund.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="cta-bottom">
+        <h2 class="section-title">Ready to scale your stores?</h2>
+        <a href="#!" class="btn-primary" onclick="openPaddleCheckout(event)">
+            Get PRO License Now
+        </a>
+        <div class="trust-badges">
+            <span>🔒 Secure Checkout via Paddle</span>
+            <span>🛡️ 30-Day Money-Back Guarantee</span>
+            <span>⚡️ Instant License Delivery</span>
         </div>
     </section>
 
@@ -303,7 +282,7 @@
             }
         });
 
-        // Automatically open the checkout popup after everything is fully loaded (safari fix)
+        // Automatically open the checkout popup after everything is fully loaded
         window.addEventListener('load', function() {
             setTimeout(function() {
                 if(typeof Paddle !== 'undefined') {
@@ -316,7 +295,7 @@
             }, 300);
         });
 
-        // Keep the function in case they close it and want to click the button again
+        // Manual Trigger
         function openPaddleCheckout(e) {
             e.preventDefault();
             document.getElementById('checkout-loader').style.display = 'flex';
