@@ -67,7 +67,7 @@
         .nav-links a:hover { color: var(--text-main); }
 
         /* Hero Section */
-        .hero { text-align: center; padding: 6rem 20px 4rem; max-width: 900px; margin: 0 auto; }
+        .hero { text-align: center; padding: 6rem 20px 4rem; max-width: 1000px; margin: 0 auto; }
         .pill {
             display: inline-block; background: rgba(168, 85, 247, 0.1); color: #d8b4fe;
             padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
@@ -85,6 +85,31 @@
         }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4); }
         .price-note { display: block; margin-top: 15px; font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Hero Mockup Image */
+        .hero-mockup {
+            margin-top: 5rem;
+            position: relative;
+            border-radius: 16px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 150px rgba(168, 85, 247, 0.15);
+            backdrop-filter: blur(10px);
+            transform: perspective(1200px) rotateX(4deg);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .hero-mockup:hover {
+            transform: perspective(1200px) rotateX(0deg) scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 0 200px rgba(168, 85, 247, 0.25);
+        }
+        .hero-mockup img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
         /* Sections */
         section.content-section { padding: 5rem 20px; max-width: 1200px; margin: 0 auto; }
@@ -165,7 +190,7 @@
                     </linearGradient>
                 </defs>
             </svg>
-            Printzen
+            Printzen Apps
         </div>
         <div class="nav-links">
             <a href="#" onclick="openPaddleCheckout(event)">Get PRO</a>
@@ -181,6 +206,10 @@
             Get PRO License - $99
         </a>
         <span class="price-note">One-time payment. Lifetime updates.</span>
+
+        <div class="hero-mockup">
+            <img src="/woo-sync-dashboard.png" alt="WooCommerce Multi-Store Synchronization Dashboard UI Mockup">
+        </div>
     </section>
 
     <!-- Features -->
