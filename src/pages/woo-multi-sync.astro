@@ -259,10 +259,21 @@
 
     <!-- Initialize Paddle.js -->
     <script is:inline type="text/javascript">
+        // Initialize Paddle
         Paddle.Initialize({ 
             token: 'live_a232701421a84ae13568067ed6e' 
         });
 
+        // Automatically open the checkout popup 500ms after the page loads
+        setTimeout(function() {
+            Paddle.Checkout.open({
+                items: [
+                    { priceId: 'pri_01kxam6hw34zadjy8w111076sc', quantity: 1 }
+                ]
+            });
+        }, 500);
+
+        // Keep the function in case they close it and want to click the button again
         function openPaddleCheckout(e) {
             e.preventDefault();
             Paddle.Checkout.open({
