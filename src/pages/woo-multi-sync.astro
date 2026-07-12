@@ -233,7 +233,7 @@
         <p>Seamlessly synchronize products, stock, and pricing across unlimited WordPress stores. Build a centralized network powered by lightning-fast APIs.</p>
         
         <!-- Paddle Button -->
-        <a href="#!" class="paddle_button btn-primary" data-items='[{"priceId": "pri_01kxam6hw34zadjy8w111076sc", "quantity": 1}]'>
+        <a href="#!" class="btn-primary" onclick="openPaddleCheckout(event)">
             Get PRO License - $99
         </a>
         <span class="price-note">One-time payment. Lifetime updates.</span>
@@ -262,6 +262,15 @@
         Paddle.Initialize({ 
             token: 'live_a232701421a84ae13568067ed6e' 
         });
+
+        function openPaddleCheckout(e) {
+            e.preventDefault();
+            Paddle.Checkout.open({
+                items: [
+                    { priceId: 'pri_01kxam6hw34zadjy8w111076sc', quantity: 1 }
+                ]
+            });
+        }
     </script>
 </body>
 </html>
